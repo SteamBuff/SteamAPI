@@ -3,3 +3,6 @@
 
 ## Status
 > Planning status
+
+
+[![Coverage Status](https://coveralls.io/repos/github/SteamBuff/SteamAPI/badge.svg?branch=master)](https://coveralls.io/github/SteamBuff/SteamAPI?branch=master)
