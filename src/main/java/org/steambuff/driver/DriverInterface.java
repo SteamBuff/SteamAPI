@@ -11,6 +11,6 @@ public interface DriverInterface {
      * @param method Type request
      * @return Data form resource
      */
-    String getData(String url, Map<String, String> params, String method);
+    String getData(String url, Params params, String method);
 
 }

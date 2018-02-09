@@ -1,12 +1,15 @@
 package org.steambuff.method;
 
 import org.steambuff.entity.SteamId;
+import org.steambuff.entity.playerservice.OwnedGames;
+
+import java.util.List;
 
 public interface PlayerServiceInterface {
 
-    void getOwnedGames(SteamId steamId, boolean includeAppInfo, boolean includePlayedFreeGames);
+    OwnedGames getOwnedGames(SteamId steamId, boolean includeAppInfo, boolean includePlayedFreeGames, List<Long> filterAppId);
 
-    void getOwnedGames(SteamId steamId, boolean includeAppInfo);
+    OwnedGames getOwnedGames(SteamId steamId, boolean includeAppInfo);
 
-    void getOwnedGames(SteamId steamId);
+    OwnedGames getOwnedGames(SteamId steamId);
 }

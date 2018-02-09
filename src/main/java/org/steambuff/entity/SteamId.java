@@ -2,12 +2,12 @@ package org.steambuff.entity;
 
 public class SteamId {
 
-    private byte university;
+    private byte universe;
 
     private long id;
 
-    public SteamId(byte university,long id){
-        this.university = university;
+    public SteamId(byte universe,long id){
+        this.universe = universe;
         this.id = id;
     }
 
@@ -15,4 +15,7 @@ public class SteamId {
         //TODO Process 64 id to University + id
     }
 
+    public long toId64() {
+        return universe + id * 2 + 76561197960265728L;
+    }
 }

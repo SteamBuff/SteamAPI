@@ -2,6 +2,8 @@ package org.steambuff.method;
 
 
 import org.steambuff.driver.DriverInterface;
+import org.steambuff.driver.Params;
+import org.steambuff.driver.RequestParams;
 
 public class AbstractSteamInterface implements SteamApiInterface {
 
@@ -33,5 +35,9 @@ public class AbstractSteamInterface implements SteamApiInterface {
 
     public String getKey() {
         return key;
+    }
+
+    public Params getDefaultParams(){
+        return new RequestParams().addParams("key",getKey());
     }
 }
