@@ -13,7 +13,7 @@ public class AbstractSteamInterface implements SteamApiInterface {
 
     private ReturnFormat returnFormat;
 
-    AbstractSteamInterface(String key, DriverInterface driverInterface){
+    public AbstractSteamInterface(String key, DriverInterface driverInterface){
         this.key = key;
         this.driverInterface = driverInterface;
         this.returnFormat = ReturnFormat.JSON;

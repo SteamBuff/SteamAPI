@@ -1,4 +1,4 @@
-package org.steambuff.entity;
+package org.steambuff.method;
 
 public class SteamId {
 

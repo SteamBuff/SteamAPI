@@ -1,4 +1,4 @@
-package org.steambuff.entity.playerservice;
+package org.steambuff.method.entity.response.playerservice;
 
 //TODO add Extended Game like (img_icon_url, img_logo_url, name)
 public class Game {

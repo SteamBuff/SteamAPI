@@ -1,6 +1,6 @@
-package org.steambuff.entity.playerservice;
+package org.steambuff.method.entity.response.playerservice;
 
-import org.steambuff.entity.SteamId;
+import org.steambuff.method.entity.SteamId;
 
 import java.util.List;
 
