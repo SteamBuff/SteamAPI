@@ -1,7 +1,8 @@
-package method;
+package org.steambuff.method;
 
-import driver.DriverInterface;
-import entity.SteamId;
+
+import org.steambuff.driver.DriverInterface;
+import org.steambuff.entity.SteamId;
 
 public class PlayerService extends AbstractSteamInterface implements PlayerServiceInterface {
 

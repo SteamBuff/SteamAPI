@@ -1,4 +1,4 @@
-package driver;
+package org.steambuff.driver;
 
 import java.util.Map;
 

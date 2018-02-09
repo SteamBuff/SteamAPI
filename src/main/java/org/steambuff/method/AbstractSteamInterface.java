@@ -1,6 +1,7 @@
-package method;
+package org.steambuff.method;
 
-import driver.DriverInterface;
+
+import org.steambuff.driver.DriverInterface;
 
 public class AbstractSteamInterface implements SteamApiInterface {
 

@@ -1,4 +1,4 @@
-package method;
+package org.steambuff.method;
 
 public enum ReturnFormat {
     JSON,

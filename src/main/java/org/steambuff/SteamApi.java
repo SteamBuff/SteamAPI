@@ -1,7 +1,8 @@
-import driver.DriverInterface;
-import entity.SteamId;
-import method.PlayerService;
-import method.PlayerServiceInterface;
+package org.steambuff;
+
+import org.steambuff.driver.DriverInterface;
+import org.steambuff.method.PlayerService;
+import org.steambuff.method.PlayerServiceInterface;
 
 public class SteamApi {
 
