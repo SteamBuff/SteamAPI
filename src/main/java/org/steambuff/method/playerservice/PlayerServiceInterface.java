@@ -1,7 +1,7 @@
-package org.steambuff.method;
+package org.steambuff.method.playerservice;
 
-import org.steambuff.entity.SteamId;
-import org.steambuff.entity.playerservice.OwnedGames;
+import org.steambuff.method.SteamId;
+import org.steambuff.method.playerservice.entity.OwnedGames;
 
 import java.util.List;
 

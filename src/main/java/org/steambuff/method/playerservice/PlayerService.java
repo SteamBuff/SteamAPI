@@ -1,9 +1,10 @@
-package org.steambuff.method;
+package org.steambuff.method.playerservice;
 
 
 import org.steambuff.driver.DriverInterface;
-import org.steambuff.entity.SteamId;
-import org.steambuff.entity.playerservice.OwnedGames;
+import org.steambuff.method.SteamId;
+import org.steambuff.method.playerservice.entity.OwnedGames;
+import org.steambuff.method.AbstractSteamInterface;
 
 import java.util.List;
 

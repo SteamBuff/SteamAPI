@@ -1,6 +1,6 @@
-package org.steambuff.method.entity.response.steamuser;
+package org.steambuff.method.steamuser.entity;
 
-import org.steambuff.method.entity.SteamId;
+import org.steambuff.method.SteamId;
 
 public class PlayerSummaries {
 
