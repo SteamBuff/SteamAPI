@@ -7,3 +7,4 @@
 
 
 [![Coverage Status](https://coveralls.io/repos/github/SteamBuff/SteamAPI/badge.svg?branch=master)](https://coveralls.io/github/SteamBuff/SteamAPI?branch=master)
+[![Build Status](https://travis-ci.org/SteamBuff/SteamAPI.svg?branch=master)](https://travis-ci.org/SteamBuff/SteamAPI)
