@@ -5,6 +5,7 @@ import org.steambuff.method.ListSteamId;
 import org.steambuff.method.SteamId;
 import org.steambuff.method.steamuser.entity.PlayerSummaries;
 import org.steambuff.method.AbstractSteamInterface;
+import org.steambuff.method.steamuser.entity.request.RequestPlayerSummaries;
 
 import java.util.List;
 
@@ -16,11 +17,13 @@ public class SteamUser extends AbstractSteamInterface implements SteamUserInterf
 
     @Override
     public List<PlayerSummaries> getPlayerSummaries(ListSteamId listSteamId) {
+
         return null;
     }
 
     @Override
     public PlayerSummaries getPlayerSummaries(SteamId steamId) {
+        sendGET("",new RequestPlayerSummaries().add(steamId).getParams());
         return null;
     }
 }

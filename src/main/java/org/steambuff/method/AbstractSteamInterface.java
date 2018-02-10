@@ -29,15 +29,17 @@ public class AbstractSteamInterface implements SteamApiInterface {
         return this.returnFormat;
     }
 
-    public DriverInterface getDriver() {
+    private DriverInterface getDriver() {
         return driverInterface;
     }
 
-    public String getKey() {
+    protected String getKey() {
         return key;
     }
 
-    public Params getDefaultParams(){
-        return new RequestParams().addParams("key",getKey());
+
+    protected String sendGET(String url,Params params){
+        return getDriver().getData(url, params.addParams("key",getKey()), "GET");
     }
+
 }
