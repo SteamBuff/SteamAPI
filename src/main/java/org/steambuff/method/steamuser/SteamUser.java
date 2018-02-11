@@ -2,8 +2,10 @@ package org.steambuff.method.steamuser;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.JsonSyntaxException;
 import com.google.gson.reflect.TypeToken;
 import org.steambuff.driver.DriverInterface;
+import org.steambuff.exception.SteamApiException;
 import org.steambuff.method.ListSteamId;
 import org.steambuff.method.SteamId;
 import org.steambuff.method.steamuser.deserializer.PlayerSummariesDeserializer;
@@ -18,8 +20,8 @@ public class SteamUser extends AbstractSteamInterface implements SteamUserInterf
 
     private final String PLAYER_SUMMARIES = "http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/";
 
-    public SteamUser(String key, DriverInterface driverInterface) {
-        super(key, driverInterface);
+    public SteamUser(String key, DriverInterface driverInterface, Gson gson) {
+        super(key, driverInterface,gson);
     }
 
     @Override
@@ -29,10 +31,14 @@ public class SteamUser extends AbstractSteamInterface implements SteamUserInterf
     }
 
     @Override
-    public List<PlayerSummaries>  getPlayerSummaries(SteamId steamId) {
-        GsonBuilder gsonBuilder = new GsonBuilder();
-        gsonBuilder.registerTypeAdapter(new TypeToken<List<PlayerSummaries>>(){}.getType(),new PlayerSummariesDeserializer());
-        Gson gson = gsonBuilder.create();
-        return gson.fromJson(sendGET("",new RequestPlayerSummaries().add(steamId).getParams()),new TypeToken<List<PlayerSummaries>>(){}.getType());
+    public List<PlayerSummaries>  getPlayerSummaries(SteamId steamId) throws SteamApiException {
+        try {
+
+            return parse(sendGET("", new RequestPlayerSummaries().add(steamId).getParams()),
+                    new TypeToken<List<PlayerSummaries>>() {}.getType()
+            );
+        }catch (JsonSyntaxException exception){
+            throw new SteamApiException(exception.getMessage());
+        }
     }
 }

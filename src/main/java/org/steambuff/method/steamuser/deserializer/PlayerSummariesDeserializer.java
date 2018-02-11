@@ -13,8 +13,10 @@ public class PlayerSummariesDeserializer implements JsonDeserializer<List<Player
     public List<PlayerSummaries> deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
         List<PlayerSummaries> playerSummariesList = new ArrayList<>();
         Gson gson = new Gson();
-        json.getAsJsonObject().get("response").getAsJsonObject().get("players").getAsJsonObject().get("player").getAsJsonArray().forEach(data->{
-            playerSummariesList.add(gson.fromJson(data,PlayerSummaries.class));
+        json.getAsJsonObject().get("response").getAsJsonObject().get("players").getAsJsonObject().get("player").getAsJsonArray().forEach(data -> {
+            if (!data.isJsonNull()) {
+                playerSummariesList.add(gson.fromJson(data, PlayerSummaries.class));
+            }
         });
         return playerSummariesList;
     }

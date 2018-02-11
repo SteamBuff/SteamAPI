@@ -10,10 +10,4 @@ import java.util.List;
 
 class SteamApiTest {
 
-    private DriverInterface driver = new TestDriver();
-    private SteamApi steamApi = new SteamApi("KEY?",driver);
-    @Test
-    void testSteamUserInterface() {
-        System.out.println(steamApi.getSteamUserInterface().getPlayerSummaries(new SteamId(1,2)).get(0).getDisplayName());
-    }
 }
