@@ -27,3 +27,20 @@ class SteamApiExample {
     }
 }
 ```
+
+
+
+## Function
+- [x] getPlayerSummaries
+- [ ] GetNewsForApp (v0002)
+- [ ] GetGlobalAchievementPercentagesForApp (v0002)
+- [ ] GetGlobalStatsForGame (v0001)
+- [ ] GetPlayerSummaries (v0002)
+- [ ] GetFriendList (v0001)
+- [ ] GetPlayerAchievements (v0001)
+- [ ] GetUserStatsForGame (v0002)
+- [ ] GetOwnedGames (v0001)
+- [ ] GetRecentlyPlayedGames (v0001)
+- [ ] IsPlayingSharedGame (v0001)
+- [ ] GetSchemaForGame (v2)
+- [ ] GetPlayerBans (v1)
