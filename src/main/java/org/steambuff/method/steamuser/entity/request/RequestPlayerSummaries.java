@@ -6,7 +6,6 @@ import org.steambuff.method.ListSteamId;
 import org.steambuff.method.RequestEntity;
 import org.steambuff.method.SteamId;
 
-import java.util.List;
 
 public class RequestPlayerSummaries implements RequestEntity<RequestPlayerSummaries> {
 
@@ -17,13 +16,14 @@ public class RequestPlayerSummaries implements RequestEntity<RequestPlayerSummar
     public RequestPlayerSummaries add(Object object) {
         if (object instanceof ListSteamId){
             this.listSteamId = (ListSteamId) object;
+        }else if (object instanceof SteamId){
+            this.listSteamId = new ListSteamId((SteamId) object);
         }
         return this;
     }
 
     @Override
     public Params getParams() {
-
-        return new RequestParams().addParams("steamids","");
+        return new RequestParams().addParams("steamids",listSteamId.toString());
     }
 }

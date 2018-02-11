@@ -1,5 +1,7 @@
 package org.steambuff.driver;
 
+import java.util.function.Consumer;
+
 public interface Params {
 
     /**
@@ -10,5 +12,7 @@ public interface Params {
      */
     public Params addParams(String key, Object value);
 
+    public Object getParamByKey(String key);
 
+    public void forEach(Consumer<? super Object> action);
 }

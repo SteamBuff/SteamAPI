@@ -6,13 +6,17 @@ public class SteamId {
 
     private long id;
 
-    public SteamId(byte universe,long id){
-        this.universe = universe;
+    public SteamId(int universe,long id){
+        this.universe = (byte) universe;
         this.id = id;
     }
 
-    public SteamId(long id64){
-        //TODO Process 64 id to University + id
+    public SteamId(String id64){
+        long id64Logn = Long.parseLong(id64);
+        byte universe = (byte) (id64Logn % 2);
+        long id = (id64Logn - 76561197960265728L - universe) / 2;
+        this.universe = universe;
+        this.id = id;
     }
 
     public long toId64() {

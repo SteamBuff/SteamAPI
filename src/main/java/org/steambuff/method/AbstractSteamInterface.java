@@ -3,7 +3,6 @@ package org.steambuff.method;
 
 import org.steambuff.driver.DriverInterface;
 import org.steambuff.driver.Params;
-import org.steambuff.driver.RequestParams;
 
 public class AbstractSteamInterface implements SteamApiInterface {
 
@@ -13,7 +12,7 @@ public class AbstractSteamInterface implements SteamApiInterface {
 
     private ReturnFormat returnFormat;
 
-    public AbstractSteamInterface(String key, DriverInterface driverInterface){
+    public AbstractSteamInterface(String key, DriverInterface driverInterface) {
         this.key = key;
         this.driverInterface = driverInterface;
         this.returnFormat = ReturnFormat.JSON;
@@ -33,13 +32,13 @@ public class AbstractSteamInterface implements SteamApiInterface {
         return driverInterface;
     }
 
-    protected String getKey() {
+    private String getKey() {
         return key;
     }
 
 
-    protected String sendGET(String url,Params params){
-        return getDriver().getData(url, params.addParams("key",getKey()), "GET");
+    protected String sendGET(String url, Params params) {
+        return getDriver().getData(url, params.addParams("key", getKey()), "GET");
     }
 
 }

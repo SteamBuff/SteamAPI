@@ -10,5 +10,5 @@ public interface SteamUserInterface {
 
     List<PlayerSummaries> getPlayerSummaries(ListSteamId listSteamId);
 
-    PlayerSummaries getPlayerSummaries(SteamId steamId);
+    List<PlayerSummaries> getPlayerSummaries(SteamId steamId);
 }
