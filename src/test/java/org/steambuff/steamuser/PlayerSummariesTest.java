@@ -1,6 +1,8 @@
 package org.steambuff.steamuser;
 
+import org.junit.Rule;
 import org.junit.jupiter.api.Test;
+import org.junit.rules.ExpectedException;
 import org.steambuff.ResourceHelper;
 import org.steambuff.SteamApi;
 import org.steambuff.driver.DriverInterface;
@@ -10,12 +12,17 @@ import org.steambuff.method.SteamId;
 import org.steambuff.method.steamuser.SteamUserInterface;
 import org.steambuff.method.steamuser.entity.PlayerSummaries;
 
+import static org.hamcrest.CoreMatchers.containsString;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
 class PlayerSummariesTest {
 
     static String KEY_STEAM_API = "GOOD_KEY";
+
+    @Rule
+    public ExpectedException thrown = ExpectedException.none();
+
     private DriverInterface driver = new DriverPlayerSummaries();
 
     private SteamApi steamApi = new SteamApi(KEY_STEAM_API, driver);
@@ -30,10 +37,16 @@ class PlayerSummariesTest {
     @Test()
     void badSteamId() throws SteamApiException {
         assertEquals(0, steamUserInterface.getPlayerSummaries(new SteamId(0, -1)).size());
+
+    }
+
+    @Test
+    void badJson() throws SteamApiException {
         try {
             assertEquals(0, steamUserInterface.getPlayerSummaries(new SteamId(0, 1)).size());
             fail();
-        } catch (SteamApiException e) {
+        } catch (SteamApiException exception) {
+
         }
     }
 
