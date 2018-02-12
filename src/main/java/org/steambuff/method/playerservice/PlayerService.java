@@ -3,9 +3,9 @@ package org.steambuff.method.playerservice;
 
 import com.google.gson.Gson;
 import org.steambuff.driver.DriverInterface;
+import org.steambuff.method.AbstractSteamInterface;
 import org.steambuff.method.SteamId;
 import org.steambuff.method.playerservice.entity.OwnedGames;
-import org.steambuff.method.AbstractSteamInterface;
 
 import java.util.List;
 
@@ -20,7 +20,7 @@ public class PlayerService extends AbstractSteamInterface implements PlayerServi
     //TODO Edit SteamID to Interface SteamID
     @Override
     public OwnedGames getOwnedGames(SteamId steamId, boolean includeAppInfo, boolean includePlayedFreeGames, List<Long> filterAppId) {
-            return new OwnedGames();
+        return new OwnedGames();
     }
 
     @Override

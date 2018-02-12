@@ -9,6 +9,7 @@ import java.util.List;
 
 public class PlayerSummariesDeserializer implements JsonDeserializer<List<PlayerSummaries>> {
 
+
     @Override
     public List<PlayerSummaries> deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
         List<PlayerSummaries> playerSummariesList = new ArrayList<>();

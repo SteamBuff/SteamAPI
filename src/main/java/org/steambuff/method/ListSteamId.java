@@ -8,12 +8,21 @@ public class ListSteamId {
     private List<SteamId> steamIdList = new ArrayList<>();
 
 
-    public ListSteamId(Collection<SteamId> steamIdList){
+    public ListSteamId(Collection<SteamId> steamIdList) {
         steamIdList.addAll(steamIdList);
     }
 
-    public ListSteamId(SteamId steamId){
+    public ListSteamId(SteamId steamId) {
         steamIdList.add(steamId);
+    }
+
+    public ListSteamId() {
+
+    }
+
+    public ListSteamId add(SteamId steamId) {
+        steamIdList.add(steamId);
+        return this;
     }
 
     @Override

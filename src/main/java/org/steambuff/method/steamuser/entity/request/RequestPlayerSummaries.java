@@ -14,9 +14,9 @@ public class RequestPlayerSummaries implements RequestEntity<RequestPlayerSummar
 
     @Override
     public RequestPlayerSummaries add(Object object) {
-        if (object instanceof ListSteamId){
+        if (object instanceof ListSteamId) {
             this.listSteamId = (ListSteamId) object;
-        }else if (object instanceof SteamId){
+        } else if (object instanceof SteamId) {
             this.listSteamId = new ListSteamId((SteamId) object);
         }
         return this;
@@ -24,6 +24,6 @@ public class RequestPlayerSummaries implements RequestEntity<RequestPlayerSummar
 
     @Override
     public Params getParams() {
-        return new RequestParams().addParams("steamids",listSteamId.toString());
+        return new RequestParams().addParams("steamids", listSteamId.toString());
     }
 }

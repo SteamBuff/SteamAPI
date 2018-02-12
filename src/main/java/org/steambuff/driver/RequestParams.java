@@ -19,10 +19,11 @@ public class RequestParams implements Params {
     }
 
     public void forEach(Consumer<? super KeyValue> action) {
-        params.forEach((key,value)-> action.accept(new KeyValue(key,value)));
+        params.forEach((key, value) -> action.accept(new KeyValue(key, value)));
     }
 }
-class KeyValue{
+
+class KeyValue {
     private String key;
     private Object value;
 

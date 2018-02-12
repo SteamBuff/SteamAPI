@@ -5,7 +5,7 @@ import org.steambuff.driver.Params;
 /**
  * The interface Request entity.
  */
-public interface RequestEntity <T extends RequestEntity<T>> {
+public interface RequestEntity<T extends RequestEntity<T>> {
 
 
     public T add(Object object);

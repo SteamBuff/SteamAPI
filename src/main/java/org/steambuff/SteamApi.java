@@ -78,6 +78,7 @@ public final class SteamApi {
 
     /**
      * Get Steam User Interface
+     *
      * @return
      */
     public SteamUserInterface getSteamUserInterface() {

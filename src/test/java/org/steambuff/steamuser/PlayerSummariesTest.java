@@ -12,7 +12,6 @@ import org.steambuff.method.SteamId;
 import org.steambuff.method.steamuser.SteamUserInterface;
 import org.steambuff.method.steamuser.entity.PlayerSummaries;
 
-import static org.hamcrest.CoreMatchers.containsString;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 

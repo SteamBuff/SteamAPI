@@ -1,10 +1,7 @@
 package org.steambuff.method.steamuser.entity;
 
-import com.google.gson.*;
 import com.google.gson.annotations.SerializedName;
 import org.steambuff.method.SteamId;
-
-import java.lang.reflect.Type;
 
 public class PlayerSummaries {
 
@@ -13,12 +10,16 @@ public class PlayerSummaries {
     @SerializedName("personaname")
     private String displayName;
 
+    @SerializedName("profileurl")
     private String profileUrl;
 
+    @SerializedName("avatar")
     private String avatar;
 
-    private String avatarmedium;
+    @SerializedName("avatarmedium")
+    private String avatarMedium;
 
+    @SerializedName("avatarfull")
     private String avatarFull;
 
 
@@ -29,4 +30,21 @@ public class PlayerSummaries {
     public String getDisplayName() {
         return displayName;
     }
+
+    public String getProfileUrl() {
+        return profileUrl;
+    }
+
+    public String getAvatar() {
+        return avatar;
+    }
+
+    public String getAvatarMedium() {
+        return avatarMedium;
+    }
+
+    public String getAvatarFull() {
+        return avatarFull;
+    }
+
 }
