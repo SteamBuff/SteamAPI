@@ -18,23 +18,21 @@ import java.util.List;
 
 public class SteamUser extends AbstractSteamInterface implements SteamUserInterface {
 
-    private final String PLAYER_SUMMARIES = "http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/";
+    private final String PLAYER_SUMMARIES = "https://api.steampowered.com/ISteamUser/GetPlayerSummaries/v2/";
 
     public SteamUser(String key, DriverInterface driverInterface, Gson gson) {
         super(key, driverInterface,gson);
     }
 
     @Override
-    public List<PlayerSummaries> getPlayerSummaries(ListSteamId listSteamId) {
-
+    public List<PlayerSummaries> getPlayerSummaries(Iterable<SteamId> listSteamId) {
         return null;
     }
 
     @Override
     public List<PlayerSummaries>  getPlayerSummaries(SteamId steamId) throws SteamApiException {
         try {
-
-            return parse(sendGET("", new RequestPlayerSummaries().add(steamId).getParams()),
+            return parse(sendGET(PLAYER_SUMMARIES, new RequestPlayerSummaries().add(steamId).getParams()),
                     new TypeToken<List<PlayerSummaries>>() {}.getType()
             );
         }catch (JsonSyntaxException exception){

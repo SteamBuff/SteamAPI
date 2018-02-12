@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface SteamUserInterface {
 
-    List<PlayerSummaries> getPlayerSummaries(ListSteamId listSteamId);
+    List<PlayerSummaries> getPlayerSummaries(Iterable<SteamId> listSteamId);
 
     List<PlayerSummaries> getPlayerSummaries(SteamId steamId) throws SteamApiException;
 }

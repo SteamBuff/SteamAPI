@@ -14,5 +14,5 @@ public interface Params {
 
     public Object getParamByKey(String key);
 
-    public void forEach(Consumer<? super Object> action);
+    public void forEach(Consumer<? super KeyValue> action);
 }
