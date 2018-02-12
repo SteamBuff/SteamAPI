@@ -1,9 +1,7 @@
 {
   "response": {
-    "players": {
-      "player": [
+    "players": [
         null
-      ]
-    }
+    ]
   }
 }

@@ -14,7 +14,7 @@ import org.steambuff.method.steamuser.entity.PlayerSummaries;
 
 import java.util.List;
 
-public class SteamApi {
+public final class SteamApi {
 
 
     /**
@@ -22,13 +22,25 @@ public class SteamApi {
      */
     private String key;
 
+    /**
+     * Driver for connection to Steam
+     *
+     * @see DriverInterface
+     */
     private DriverInterface driver;
+
     private PlayerServiceInterface serviceInterface;
     private SteamUserInterface steamUserInterface;
 
 
-
     private Gson gson;
+
+    /**
+     * Get Instance with Custom Driver
+     *
+     * @param key    Key for access to steamAPI
+     * @param driver Driver for connection to Steam
+     */
     public SteamApi(String key, DriverInterface driver) {
         this.key = key;
         this.driver = driver;
@@ -36,15 +48,27 @@ public class SteamApi {
         this.initInterfaces();
     }
 
+    /**
+     * Get Instance with default driver
+     *
+     * @param key Key for access to steamAPI
+     * @return SteamAPI Instance
+     */
+    public static SteamApi getInstance(String key) {
+        return new SteamApi(key, new SteamDriver());
+    }
+
+
     private void initGson() {
         GsonBuilder gsonBuilder = new GsonBuilder();
-        gsonBuilder.registerTypeAdapter(new TypeToken<List<PlayerSummaries>>(){}.getType(),new PlayerSummariesDeserializer());
+        gsonBuilder.registerTypeAdapter(new TypeToken<List<PlayerSummaries>>() {
+        }.getType(), new PlayerSummariesDeserializer());
         this.gson = gsonBuilder.create();
     }
 
     private void initInterfaces() {
-        serviceInterface = new PlayerService(this.key, this.driver,this.gson);
-        steamUserInterface = new SteamUser(this.key, this.driver,this.gson);
+        serviceInterface = new PlayerService(this.key, this.driver, this.gson);
+        steamUserInterface = new SteamUser(this.key, this.driver, this.gson);
     }
 
 
@@ -52,12 +76,11 @@ public class SteamApi {
         return serviceInterface;
     }
 
+    /**
+     * Get Steam User Interface
+     * @return
+     */
     public SteamUserInterface getSteamUserInterface() {
         return steamUserInterface;
     }
-
-    public static SteamApi getInstance(String key){
-        return  new SteamApi(key,new SteamDriver());
-    }
-
 }
