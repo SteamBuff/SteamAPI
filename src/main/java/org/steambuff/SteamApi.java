@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 import org.steambuff.driver.DriverInterface;
+import org.steambuff.driver.SteamDriver;
 import org.steambuff.method.playerservice.PlayerService;
 import org.steambuff.method.playerservice.PlayerServiceInterface;
 import org.steambuff.method.steamuser.SteamUser;
@@ -53,6 +54,10 @@ public class SteamApi {
 
     public SteamUserInterface getSteamUserInterface() {
         return steamUserInterface;
+    }
+
+    public static SteamApi getInstance(String key){
+        return  new SteamApi(key,new SteamDriver());
     }
 
 }

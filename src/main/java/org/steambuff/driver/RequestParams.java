@@ -18,9 +18,25 @@ public class RequestParams implements Params {
         return params.get(key);
     }
 
-    public void forEach(Consumer<? super Object> action) {
-        for (int i = 0; i < params.size(); i++) {
-            action.accept(params.keySet().toArray()[i]);
-        }
+    public void forEach(Consumer<? super KeyValue> action) {
+        params.forEach((key,value)-> action.accept(new KeyValue(key,value)));
+    }
+}
+class KeyValue{
+    private String key;
+    private Object value;
+
+
+    KeyValue(String key, Object value) {
+        this.key = key;
+        this.value = value;
+    }
+
+    public String getKey() {
+        return key;
+    }
+
+    public Object getValue() {
+        return value;
     }
 }

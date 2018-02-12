@@ -33,7 +33,6 @@ public class SteamUser extends AbstractSteamInterface implements SteamUserInterf
     @Override
     public List<PlayerSummaries>  getPlayerSummaries(SteamId steamId) throws SteamApiException {
         try {
-
             return parse(sendGET("", new RequestPlayerSummaries().add(steamId).getParams()),
                     new TypeToken<List<PlayerSummaries>>() {}.getType()
             );
