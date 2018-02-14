@@ -21,7 +21,7 @@ class SteamApiExample {
         try{ 
             playerSummaries =  steamApi.getSteamUserInterface().getPlayerSummaries(new SteamId(0,2)).get(0);
         }catch (SteamApiException exception){
-            System.out.println("Some errors: "+exception.getMessage());
+            System.out.println("Some errors: " + exception.getMessage());
         }
        System.out.println("Result: "+playerSummaries.getDisplayName());
     }
