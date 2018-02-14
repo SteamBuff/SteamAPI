@@ -31,7 +31,7 @@ class SteamApiExample {
 
 
 ## Function
-- [x] getPlayerSummaries
+- [x +-] GetPlayerSummaries (v0002)
 - [ ] GetNewsForApp (v0002)
 - [ ] GetGlobalAchievementPercentagesForApp (v0002)
 - [ ] GetGlobalStatsForGame (v0001)
