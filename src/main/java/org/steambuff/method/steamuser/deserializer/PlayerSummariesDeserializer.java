@@ -16,6 +16,7 @@ public class PlayerSummariesDeserializer implements JsonDeserializer<List<Player
         Gson gson = new Gson();
         json.getAsJsonObject().get("response").getAsJsonObject().get("players").getAsJsonArray().forEach(data -> {
             if (!data.isJsonNull()) {
+
                 playerSummariesList.add(gson.fromJson(data, PlayerSummaries.class));
             }
         });

@@ -9,15 +9,12 @@ import org.steambuff.method.SteamId;
 class SteamApiTest {
     @Test
     void test() throws SteamApiException {
-        SteamApi steamApi = SteamApi.getInstance("Exception :/");
+        SteamApi steamApi = SteamApi.getInstance("");
         ListSteamId steamIdList = new ListSteamId();
-        for (int i = 0; i < 50; i++) {
-            steamIdList.add(new SteamId(0, i));
-            steamIdList.add(new SteamId(1, i));
+        for (int i = 0; i < 1; i++) {
+            steamIdList.add(new SteamId(0, 108313947));
         }
-        steamApi.getSteamUserInterface().getPlayerSummaries(steamIdList).forEach(data -> {
-            System.out.println(data.getAvatarFull());
-        });
+        steamApi.getSteamUserInterface().getPlayerSummaries(steamIdList);
     }
 
 }

@@ -9,13 +9,13 @@ import org.steambuff.method.AbstractSteamInterface;
 import org.steambuff.method.ListSteamId;
 import org.steambuff.method.SteamId;
 import org.steambuff.method.steamuser.entity.PlayerSummaries;
+import org.steambuff.method.steamuser.entity.UserStats;
 import org.steambuff.method.steamuser.entity.request.RequestPlayerSummaries;
+import org.steambuff.method.steamuser.entity.request.RequestStatsGame;
 
 import java.util.List;
 
 public class SteamUser extends AbstractSteamInterface implements SteamUserInterface {
-
-    private final String PLAYER_SUMMARIES = "https://api.steampowered.com/ISteamUser/GetPlayerSummaries/v2/";
 
     public SteamUser(String key, DriverInterface driverInterface, Gson gson) {
         super(key, driverInterface, gson);
@@ -43,5 +43,10 @@ public class SteamUser extends AbstractSteamInterface implements SteamUserInterf
         } catch (JsonSyntaxException exception) {
             throw new SteamApiException(exception.getMessage());
         }
+    }
+
+    @Override
+    public UserStats getUserStatsForGame(SteamId steamId, int appId) throws SteamApiException {
+            return parse(sendGET(new RequestStatsGame().add(steamId).add(appId)), UserStats.class);
     }
 }
