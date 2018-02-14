@@ -34,8 +34,8 @@ public class AbstractSteamInterface implements SteamApiInterface {
         return gson.fromJson(data, type);
     }
 
-    protected String sendGET(String url, Params params) {
-        return getDriver().getData(url, params.addParams("key", getKey()), "GET");
+    protected String sendGET(RequestEntity requestEntity) {
+        return getDriver().getData(requestEntity.getURL(), requestEntity.getParams().addParams("key", getKey()), "GET");
     }
 
 }

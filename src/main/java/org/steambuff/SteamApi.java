@@ -72,14 +72,18 @@ public final class SteamApi {
     }
 
 
+    /**
+     * Get PlayerService Interface
+     * @return PlayerService Interface
+     */
     public PlayerServiceInterface getPlayerServiceInterface() {
         return serviceInterface;
     }
 
     /**
-     * Get Steam User Interface
+     * Get SteamUser Interface
      *
-     * @return
+     * @return SteamUser Interface
      */
     public SteamUserInterface getSteamUserInterface() {
         return steamUserInterface;

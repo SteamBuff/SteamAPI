@@ -7,7 +7,12 @@ import org.steambuff.driver.Params;
  */
 public interface RequestEntity<T extends RequestEntity<T>> {
 
-
+    /**
+     * Added object to Request
+     *
+     * @param object
+     * @return
+     */
     public T add(Object object);
 
     /**
@@ -16,4 +21,12 @@ public interface RequestEntity<T extends RequestEntity<T>> {
      * @return the params
      */
     public Params getParams();
+
+
+    /**
+     * Get the URL for sending the request
+     *
+     * @return URL
+     */
+    String getURL();
 }

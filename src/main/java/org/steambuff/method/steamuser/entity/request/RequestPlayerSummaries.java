@@ -9,15 +9,25 @@ import org.steambuff.method.SteamId;
 
 public class RequestPlayerSummaries implements RequestEntity<RequestPlayerSummaries> {
 
-    private ListSteamId listSteamId;
 
+    private ListSteamId listSteamId = new ListSteamId();
+    private String url = "api.steampowered.com/ISteamUser/GetPlayerSummaries/v2/";
+
+
+    public RequestPlayerSummaries (boolean useHttps){
+        if (useHttps){
+            url = "https://"+url;
+        }else{
+            url = "http://"+url;
+        }
+    }
 
     @Override
     public RequestPlayerSummaries add(Object object) {
         if (object instanceof ListSteamId) {
             this.listSteamId = (ListSteamId) object;
         } else if (object instanceof SteamId) {
-            this.listSteamId = new ListSteamId((SteamId) object);
+            this.listSteamId.add((SteamId) object);
         }
         return this;
     }
@@ -26,4 +36,11 @@ public class RequestPlayerSummaries implements RequestEntity<RequestPlayerSummar
     public Params getParams() {
         return new RequestParams().addParams("steamids", listSteamId.toString());
     }
+
+    @Override
+    public String getURL() {
+        return url;
+    }
+
+
 }

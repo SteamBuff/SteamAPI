@@ -9,7 +9,7 @@ import org.steambuff.method.SteamId;
 class SteamApiTest {
     @Test
     void test() throws SteamApiException {
-        SteamApi steamApi = SteamApi.getInstance("D253200DE0684139B7084C3275068939");
+        SteamApi steamApi = SteamApi.getInstance("Exception :/");
         ListSteamId steamIdList = new ListSteamId();
         for (int i = 0; i < 50; i++) {
             steamIdList.add(new SteamId(0, i));
