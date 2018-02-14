@@ -1,7 +1,12 @@
 package org.steambuff.method;
 
 
+import com.google.gson.Gson;
+import com.google.gson.JsonSyntaxException;
 import org.steambuff.driver.DriverInterface;
+import org.steambuff.driver.Params;
+
+import java.lang.reflect.Type;
 
 public class AbstractSteamInterface implements SteamApiInterface {
 
@@ -9,29 +14,28 @@ public class AbstractSteamInterface implements SteamApiInterface {
 
     private DriverInterface driverInterface;
 
-    private ReturnFormat returnFormat;
+    private Gson gson;
 
-    AbstractSteamInterface(String key, DriverInterface driverInterface){
+    public AbstractSteamInterface(String key, DriverInterface driverInterface, Gson gson) {
         this.key = key;
         this.driverInterface = driverInterface;
-        this.returnFormat = ReturnFormat.JSON;
+        this.gson = gson;
     }
 
-    @Override
-    public void setFormat(ReturnFormat returnFormat) {
-        this.returnFormat = returnFormat;
-    }
-
-    @Override
-    public ReturnFormat getFormat() {
-        return this.returnFormat;
-    }
-
-    public DriverInterface getDriver() {
+    private DriverInterface getDriver() {
         return driverInterface;
     }
 
-    public String getKey() {
+    private String getKey() {
         return key;
     }
+
+    protected <T> T parse(String data, Type type) throws JsonSyntaxException {
+        return gson.fromJson(data, type);
+    }
+
+    protected String sendGET(RequestEntity requestEntity) {
+        return getDriver().getData(requestEntity.getURL(), requestEntity.getParams().addParams("key", getKey()), "GET");
+    }
+
 }
