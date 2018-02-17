@@ -1,15 +1,32 @@
 package org.steambuff.method.steamuser.entity.enums;
 
 public enum PersonaState {
-    OFFLINE(0),
-    ONLINE(1),
-    BUSY(2),
-    AWAY(3),
-    SNOOZE(4),
-    LOOKING_TO_TRADE(5),
-    LOOKING_TO_PLAY(6);
+    OFFLINE,
+    ONLINE,
+    BUSY,
+    AWAY,
+    SNOOZE,
+    LOOKING_TO_TRADE,
+    LOOKING_TO_PLAY;
 
-    PersonaState(int stateId) {
-
+    public static PersonaState getEnumByInt(int personaStateInt) {
+        switch (personaStateInt) {
+            case 0:
+                return OFFLINE;
+            case 1:
+                return ONLINE;
+            case 2:
+                return BUSY;
+            case 3:
+                return AWAY;
+            case 4:
+                return SNOOZE;
+            case 5:
+                return LOOKING_TO_TRADE;
+            case 6:
+                return LOOKING_TO_PLAY;
+            default:
+                return null;
+        }
     }
 }
