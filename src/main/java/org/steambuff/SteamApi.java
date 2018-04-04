@@ -10,7 +10,11 @@ import org.steambuff.method.playerservice.PlayerServiceInterface;
 import org.steambuff.method.steamuser.SteamUser;
 import org.steambuff.method.steamuser.SteamUserInterface;
 import org.steambuff.method.steamuser.deserializer.PlayerSummariesDeserializer;
+import org.steambuff.method.steamuser.deserializer.StatsDeserializer;
+import org.steambuff.method.steamuser.deserializer.UserStatsDeserializer;
 import org.steambuff.method.steamuser.entity.PlayerSummaries;
+import org.steambuff.method.steamuser.entity.StatsGame;
+import org.steambuff.method.steamuser.entity.UserStats;
 
 import java.util.List;
 
@@ -63,6 +67,7 @@ public final class SteamApi {
         GsonBuilder gsonBuilder = new GsonBuilder();
         gsonBuilder.registerTypeAdapter(new TypeToken<List<PlayerSummaries>>() {
         }.getType(), new PlayerSummariesDeserializer());
+        gsonBuilder.registerTypeAdapter(UserStats.class, new UserStatsDeserializer());
         this.gson = gsonBuilder.create();
     }
 
@@ -74,6 +79,7 @@ public final class SteamApi {
 
     /**
      * Get PlayerService Interface
+     *
      * @return PlayerService Interface
      */
     public PlayerServiceInterface getPlayerServiceInterface() {

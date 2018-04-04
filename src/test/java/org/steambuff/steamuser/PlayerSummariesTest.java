@@ -78,4 +78,9 @@ class DriverPlayerSummaries implements DriverInterface {
         }
         return null;
     }
+
+    @Override
+    public DriverInterface useHttps(boolean useHttps) {
+        return this;
+    }
 }

@@ -7,14 +7,29 @@ import java.net.URL;
 import java.net.URLConnection;
 
 public class SteamDriver implements DriverInterface {
+
+    private boolean useHttp = true;
+
     @Override
     public String getData(String url, Params params, String method) {
         try {
+            if (useHttp){
+                url="https://"+url;
+            }else{
+                url="http://"+url;
+            }
+
             return process(url, params);
         } catch (IOException e) {
             e.printStackTrace();
         }
         return "";
+    }
+
+    @Override
+    public DriverInterface useHttps(boolean useHttps) {
+        this.useHttp = useHttps;
+        return this;
     }
 
     private String process(String url, Params params) throws IOException {

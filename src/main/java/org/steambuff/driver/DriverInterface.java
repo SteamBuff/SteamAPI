@@ -12,4 +12,5 @@ public interface DriverInterface {
      */
     String getData(String url, Params params, String method);
 
+    DriverInterface useHttps(boolean useHttps);
 }
