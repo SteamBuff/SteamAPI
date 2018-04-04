@@ -39,7 +39,7 @@ public class SteamDriver implements DriverInterface {
                 new InputStreamReader(
                         yc.getInputStream()));
         String inputLine;
-        StringBuffer response = new StringBuffer();
+        StringBuilder response = new StringBuilder();
         while ((inputLine = in.readLine()) != null)
             response.append(inputLine);
         in.close();

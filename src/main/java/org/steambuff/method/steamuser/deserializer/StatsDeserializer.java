@@ -1,6 +1,8 @@
 package org.steambuff.method.steamuser.deserializer;
 
 import com.google.gson.*;
+import com.google.gson.reflect.TypeToken;
+import org.steambuff.method.steamuser.entity.ProgressGame;
 import org.steambuff.method.steamuser.entity.StatsGame;
 
 import java.lang.reflect.Type;
@@ -13,8 +15,8 @@ public class StatsDeserializer implements JsonDeserializer<List<StatsGame>> {
     public List<StatsGame> deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
         List<StatsGame> statsGames = new ArrayList<>();
         Gson gson = new Gson();
-        json.getAsJsonArray().forEach(data->{
-            statsGames.add(gson.fromJson(data,StatsGame.class));
+         json.getAsJsonArray().forEach(data->{
+            statsGames.add(gson.fromJson(data.getAsJsonObject(),StatsGame.class));
         });
         return statsGames;
     }
