@@ -24,7 +24,7 @@ public class SteamUser extends AbstractSteamInterface implements SteamUserInterf
     @Override
     public List<PlayerSummaries> getPlayerSummaries(ListSteamId listSteamId) throws SteamApiException {
         try {
-            return parse(sendGET(new RequestPlayerSummaries(true).add(listSteamId)),
+            return parse(sendGET(new RequestPlayerSummaries().add(listSteamId)),
                     new TypeToken<List<PlayerSummaries>>() {
                     }.getType()
             );
@@ -36,7 +36,7 @@ public class SteamUser extends AbstractSteamInterface implements SteamUserInterf
     @Override
     public List<PlayerSummaries> getPlayerSummaries(SteamId steamId) throws SteamApiException {
         try {
-            return parse(sendGET(new RequestPlayerSummaries(true).add(steamId)),
+            return parse(sendGET(new RequestPlayerSummaries().add(steamId)),
                     new TypeToken<List<PlayerSummaries>>() {
                     }.getType()
             );
@@ -47,6 +47,10 @@ public class SteamUser extends AbstractSteamInterface implements SteamUserInterf
 
     @Override
     public UserStats getUserStatsForGame(SteamId steamId, int appId) throws SteamApiException {
+        try {
             return parse(sendGET(new RequestStatsGame().add(steamId).add(appId)), UserStats.class);
+        } catch (JsonSyntaxException exception) {
+            throw new SteamApiException(exception.getMessage());
+        }
     }
 }

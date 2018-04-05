@@ -34,4 +34,9 @@ public class TestDriver implements DriverInterface {
                 "    }\n" +
                 "}";
     }
+
+    @Override
+    public DriverInterface useHttps(boolean useHttps) {
+        return this;
+    }
 }

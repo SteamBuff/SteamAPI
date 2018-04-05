@@ -4,17 +4,16 @@ import org.junit.jupiter.api.Test;
 import org.steambuff.exception.SteamApiException;
 import org.steambuff.method.ListSteamId;
 import org.steambuff.method.SteamId;
+import org.steambuff.method.steamuser.entity.UserStats;
 
 
-class SteamApiTest {
+public class SteamApiTest {
+
+    public static String GOOD_KEY = "good";
+    public static String BAD_KEY = "bad";
+
     @Test
     void test() throws SteamApiException {
-        SteamApi steamApi = SteamApi.getInstance("");
-        ListSteamId steamIdList = new ListSteamId();
-        for (int i = 0; i < 1; i++) {
-            steamIdList.add(new SteamId(0, 108313947));
-        }
-        steamApi.getSteamUserInterface().getPlayerSummaries(steamIdList);
     }
 
 }

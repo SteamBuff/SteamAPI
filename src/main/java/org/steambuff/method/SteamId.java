@@ -1,6 +1,6 @@
 package org.steambuff.method;
 
-public class SteamId {
+public class SteamId implements SteamIdInterface{
 
     private byte universe;
 
@@ -12,9 +12,9 @@ public class SteamId {
     }
 
     public SteamId(String id64) {
-        long id64Logn = Long.parseLong(id64);
-        byte universe = (byte) (id64Logn % 2);
-        long id = (id64Logn - 76561197960265728L - universe) / 2;
+        long id64Long = Long.parseLong(id64);
+        byte universe = (byte) (id64Long % 2);
+        long id = (id64Long - 76561197960265728L - universe) / 2;
         this.universe = universe;
         this.id = id;
     }
@@ -28,5 +28,10 @@ public class SteamId {
 
     public long toId64() {
         return universe + id * 2 + 76561197960265728L;
+    }
+
+    @Override
+    public String toString() {
+        return "STEAM_0:"+universe+":"+id;
     }
 }

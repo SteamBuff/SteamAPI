@@ -14,12 +14,7 @@ public class RequestPlayerSummaries implements RequestEntity<RequestPlayerSummar
     private String url = "api.steampowered.com/ISteamUser/GetPlayerSummaries/v2/";
 
 
-    public RequestPlayerSummaries (boolean useHttps){
-        if (useHttps){
-            url = "https://"+url;
-        }else{
-            url = "http://"+url;
-        }
+    public RequestPlayerSummaries (){
     }
 
     @Override
