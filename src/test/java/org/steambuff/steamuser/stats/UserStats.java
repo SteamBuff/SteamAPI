@@ -28,7 +28,7 @@ public class UserStats {
         try {
             org.steambuff.method.steamuser.entity.UserStats stats = apiGood.getSteamUserInterface().getUserStatsForGame(new SteamId(0, 420936994), 730);
             Assert.fail();
-        }catch (SteamApiException ignored){
+        } catch (SteamApiException ignored) {
         }
     }
 

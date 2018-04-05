@@ -1,5 +1,7 @@
 package org.steambuff.driver;
 
+import org.steambuff.exception.SteamApiException;
+
 public interface DriverInterface {
 
     /**
@@ -10,7 +12,7 @@ public interface DriverInterface {
      * @param method Type request
      * @return Data form resource
      */
-    String getData(String url, Params params, String method);
+    String getData(String url, Params params, String method) throws SteamApiException;
 
     DriverInterface useHttps(boolean useHttps);
 }

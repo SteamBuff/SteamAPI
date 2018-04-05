@@ -1,7 +1,6 @@
 package org.steambuff.method.steamuser.deserializer;
 
 import com.google.gson.*;
-import org.steambuff.method.SteamId;
 import org.steambuff.method.steamuser.entity.PlayerSummaries;
 
 import java.lang.reflect.Type;
@@ -23,7 +22,6 @@ public class PlayerSummariesDeserializer implements JsonDeserializer<List<Player
         });
         return playerSummariesList;
     }
-
 
 
 }

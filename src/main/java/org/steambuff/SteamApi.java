@@ -11,11 +11,9 @@ import org.steambuff.method.steamuser.SteamUser;
 import org.steambuff.method.steamuser.SteamUserInterface;
 import org.steambuff.method.steamuser.deserializer.PlayerSummariesDeserializer;
 import org.steambuff.method.steamuser.deserializer.ProgressGameDeserializer;
-import org.steambuff.method.steamuser.deserializer.StatsDeserializer;
 import org.steambuff.method.steamuser.deserializer.UserStatsDeserializer;
 import org.steambuff.method.steamuser.entity.PlayerSummaries;
 import org.steambuff.method.steamuser.entity.ProgressGame;
-import org.steambuff.method.steamuser.entity.StatsGame;
 import org.steambuff.method.steamuser.entity.UserStats;
 
 import java.util.List;
@@ -71,7 +69,7 @@ public final class SteamApi {
         }.getType(), new PlayerSummariesDeserializer());
         gsonBuilder.registerTypeAdapter(UserStats.class, new UserStatsDeserializer());
         gsonBuilder.registerTypeAdapter(ProgressGame.class, new ProgressGameDeserializer());
-      //  gsonBuilder.registerTypeAdapter(new TypeToken<List<StatsGame>>(){}.getType(), new StatsDeserializer());
+        //  gsonBuilder.registerTypeAdapter(new TypeToken<List<StatsGame>>(){}.getType(), new StatsDeserializer());
         this.gson = gsonBuilder.create();
     }
 

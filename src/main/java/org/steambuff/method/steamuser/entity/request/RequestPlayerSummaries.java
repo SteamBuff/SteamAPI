@@ -14,7 +14,7 @@ public class RequestPlayerSummaries implements RequestEntity<RequestPlayerSummar
     private String url = "api.steampowered.com/ISteamUser/GetPlayerSummaries/v2/";
 
 
-    public RequestPlayerSummaries (){
+    public RequestPlayerSummaries() {
     }
 
     @Override

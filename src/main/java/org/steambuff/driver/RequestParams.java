@@ -21,6 +21,15 @@ public class RequestParams implements Params {
     public void forEach(Consumer<? super KeyValue> action) {
         params.forEach((key, value) -> action.accept(new KeyValue(key, value)));
     }
+
+    @Override
+    public String toString() {
+        StringBuffer buffer = new StringBuffer();
+        this.forEach(data -> {
+            buffer.append(data.getKey()).append("=").append(data.getValue()).append("&");
+        });
+        return buffer.deleteCharAt(buffer.length() - 1).toString();
+    }
 }
 
 class KeyValue {

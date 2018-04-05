@@ -4,7 +4,7 @@ package org.steambuff.method;
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
 import org.steambuff.driver.DriverInterface;
-import org.steambuff.driver.Params;
+import org.steambuff.exception.SteamApiException;
 
 import java.lang.reflect.Type;
 
@@ -34,7 +34,7 @@ public class AbstractSteamInterface implements SteamApiInterface {
         return gson.fromJson(data, type);
     }
 
-    protected String sendGET(RequestEntity requestEntity) {
+    protected String sendGET(RequestEntity requestEntity) throws SteamApiException {
         return getDriver().getData(requestEntity.getURL(), requestEntity.getParams().addParams("key", getKey()), "GET");
     }
 

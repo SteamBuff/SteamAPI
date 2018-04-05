@@ -6,7 +6,6 @@ import org.steambuff.method.steamuser.entity.ProgressGame;
 import org.steambuff.method.steamuser.entity.StatsGame;
 
 import java.lang.reflect.Type;
-import java.lang.reflect.TypeVariable;
 import java.util.List;
 
 public class ProgressGameDeserializer implements JsonDeserializer<ProgressGame> {

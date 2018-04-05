@@ -33,10 +33,10 @@ class PlayerSummariesTest {
     @Test
     void checkParserGood() throws SteamApiException {
         PlayerSummaries tester = steamUserInterface.getPlayerSummaries(new SteamId(0, 23)).get(0);
-        assertEquals(tester.getSteamId().toId64(),new SteamId(0,23).toId64());
-        assertEquals(tester.getAvatar(),"https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/16/163e2fd02f3bb4257696ce2c5695233b470c3f39.jpg");
-        assertEquals(tester.getAvatarFull(),"https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/16/163e2fd02f3bb4257696ce2c5695233b470c3f39_full.jpg");
-        assertEquals(tester.getAvatarMedium(),"https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/16/163e2fd02f3bb4257696ce2c5695233b470c3f39_medium.jpg");
+        assertEquals(tester.getSteamId().toId64(), new SteamId(0, 23).toId64());
+        assertEquals(tester.getAvatar(), "https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/16/163e2fd02f3bb4257696ce2c5695233b470c3f39.jpg");
+        assertEquals(tester.getAvatarFull(), "https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/16/163e2fd02f3bb4257696ce2c5695233b470c3f39_full.jpg");
+        assertEquals(tester.getAvatarMedium(), "https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/16/163e2fd02f3bb4257696ce2c5695233b470c3f39_medium.jpg");
         assertEquals(tester.getCommunityVisibilityState(), CommunityVisibilityState.PRIVATE);
         assertEquals(tester.getDisplayName(), "Wheels");
         assertEquals(tester.getProfileState(), ProfileState.CONFIGURED);

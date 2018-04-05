@@ -1,5 +1,7 @@
 package org.steambuff.driver;
 
+import org.steambuff.exception.SteamApiException;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -11,19 +13,18 @@ public class SteamDriver implements DriverInterface {
     private boolean useHttp = true;
 
     @Override
-    public String getData(String url, Params params, String method) {
+    public String getData(String url, Params params, String method) throws SteamApiException {
         try {
-            if (useHttp){
-                url="https://"+url;
-            }else{
-                url="http://"+url;
+            if (useHttp) {
+                url = "https://" + url;
+            } else {
+                url = "http://" + url;
             }
 
             return process(url, params);
         } catch (IOException e) {
-            e.printStackTrace();
+            throw new SteamApiException(e.getMessage());
         }
-        return "";
     }
 
     @Override
@@ -33,7 +34,7 @@ public class SteamDriver implements DriverInterface {
     }
 
     private String process(String url, Params params) throws IOException {
-        URL yahoo = new URL(url + "?" + paramsToString(params));
+        URL yahoo = new URL(url + "?" + params.toString());
         URLConnection yc = yahoo.openConnection();
         BufferedReader in = new BufferedReader(
                 new InputStreamReader(
@@ -44,13 +45,5 @@ public class SteamDriver implements DriverInterface {
             response.append(inputLine);
         in.close();
         return response.toString();
-    }
-
-    private String paramsToString(Params params) {
-        StringBuffer buffer = new StringBuffer();
-        params.forEach(data -> {
-            buffer.append(data.getKey()).append("=").append(data.getValue()).append("&");
-        });
-        return buffer.deleteCharAt(buffer.length() - 1).toString();
     }
 }

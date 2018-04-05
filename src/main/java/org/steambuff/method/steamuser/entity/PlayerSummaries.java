@@ -44,7 +44,6 @@ public class PlayerSummaries {
     private PersonaState personaState;
 
 
-
     public SteamId getSteamId() {
         if (steamId == null) {
             steamId = new SteamId(this.steamIdString);
@@ -60,8 +59,8 @@ public class PlayerSummaries {
     }
 
     public ProfileState getProfileState() {
-        if (profileState == null){
-            profileState  = ProfileState.getEnumByInt(this.profileStateInt);
+        if (profileState == null) {
+            profileState = ProfileState.getEnumByInt(this.profileStateInt);
         }
         return profileState;
     }
@@ -91,7 +90,7 @@ public class PlayerSummaries {
     }
 
     public PersonaState getPersonaState() {
-        if (personaState == null){
+        if (personaState == null) {
             personaState = PersonaState.getEnumByInt(this.personaStateInt);
         }
         return personaState;

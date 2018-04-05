@@ -16,6 +16,6 @@ public class AchievementsGame {
     }
 
     public boolean isAchieved() {
-        return isAchieved==1;
+        return isAchieved == 1;
     }
 }

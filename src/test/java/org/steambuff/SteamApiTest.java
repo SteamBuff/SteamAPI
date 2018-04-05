@@ -2,9 +2,6 @@ package org.steambuff;
 
 import org.junit.jupiter.api.Test;
 import org.steambuff.exception.SteamApiException;
-import org.steambuff.method.ListSteamId;
-import org.steambuff.method.SteamId;
-import org.steambuff.method.steamuser.entity.UserStats;
 
 
 public class SteamApiTest {
