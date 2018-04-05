@@ -1,5 +1,4 @@
-# Library SteamAPI 
-## this wrapper for Steam API, only web, for Java.
+# Library SteamAPI - this wrapper for Steam API, only web, for Java.
 
 
 
