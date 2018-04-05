@@ -34,11 +34,11 @@ public class SteamDriver implements DriverInterface {
     }
 
     private String process(String url, Params params) throws IOException {
-        URL yahoo = new URL(url + "?" + params.toString());
-        URLConnection yc = yahoo.openConnection();
+        URL steamUrl = new URL(url + "?" + params.toString());
+        URLConnection steamConnection = steamUrl.openConnection();
         BufferedReader in = new BufferedReader(
                 new InputStreamReader(
-                        yc.getInputStream()));
+                        steamConnection.getInputStream()));
         String inputLine;
         StringBuilder response = new StringBuilder();
         while ((inputLine = in.readLine()) != null)
