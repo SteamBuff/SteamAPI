@@ -5,4 +5,3 @@
 \.gradle/
 
 out/
-src/test/java/org/steambuff/SteamApiTest\.java
