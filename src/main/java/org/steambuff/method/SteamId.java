@@ -12,9 +12,9 @@ public class SteamId implements SteamIdInterface{
     }
 
     public SteamId(String id64) {
-        long id64Logn = Long.parseLong(id64);
-        byte universe = (byte) (id64Logn % 2);
-        long id = (id64Logn - 76561197960265728L - universe) / 2;
+        long id64Long = Long.parseLong(id64);
+        byte universe = (byte) (id64Long % 2);
+        long id = (id64Long - 76561197960265728L - universe) / 2;
         this.universe = universe;
         this.id = id;
     }

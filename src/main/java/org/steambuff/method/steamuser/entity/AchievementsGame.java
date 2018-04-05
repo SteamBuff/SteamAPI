@@ -15,7 +15,7 @@ public class AchievementsGame {
         return achievementName;
     }
 
-    public int isAchieved() {
-        return isAchieved;
+    public boolean isAchieved() {
+        return isAchieved==1;
     }
 }
