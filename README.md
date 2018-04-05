@@ -2,9 +2,6 @@
 ## this wrapper for Steam API, only web, for Java.
 
 
-## Status
-> Planning status
-
 
 [![codecov](https://codecov.io/gh/SteamBuff/SteamAPI/branch/master/graph/badge.svg)](https://codecov.io/gh/SteamBuff/SteamAPI)
 [![Build Status](https://travis-ci.org/SteamBuff/SteamAPI.svg?branch=master)](https://travis-ci.org/SteamBuff/SteamAPI)
@@ -30,7 +27,7 @@ class SteamApiExample {
 
 
 
-## Function
+## Available method's
 - [x] GetPlayerSummaries (v0002)
 - [ ] GetNewsForApp (v0002)
 - [ ] GetGlobalAchievementPercentagesForApp (v0002)
