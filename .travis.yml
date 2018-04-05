@@ -1,5 +1,5 @@
 language: java
 after_success:
-  - gradle test coveralls:report
+  - gradle cobertura coveralls
 jdk:
   - oraclejdk9
