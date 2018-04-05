@@ -1,3 +1,5 @@
 language: java
+after_success:
+  - gradle test coveralls:report
 jdk:
   - oraclejdk9
