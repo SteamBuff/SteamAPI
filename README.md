@@ -38,7 +38,7 @@ class SteamApiExample {
 - [ ] GetPlayerSummaries (v0002)
 - [ ] GetFriendList (v0001)
 - [ ] GetPlayerAchievements (v0001)
-- [ ] GetUserStatsForGame (v0002)
+- [x] GetUserStatsForGame (v0002)
 - [ ] GetOwnedGames (v0001)
 - [ ] GetRecentlyPlayedGames (v0001)
 - [ ] IsPlayingSharedGame (v0001)

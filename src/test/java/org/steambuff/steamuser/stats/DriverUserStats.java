@@ -34,6 +34,8 @@ public class DriverUserStats implements DriverInterface {
        long steamId = (long) params.getParamByKey("steamid");
        if (steamId==76561198802139714L){
            return ResourceHelper.getJSON("US_good_1");
+       }else if (steamId==76561198802139716L){
+           return ResourceHelper.getJSON("US_bad_1");
        }
         return url;
     }
