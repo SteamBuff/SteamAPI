@@ -4,4 +4,4 @@ env:
 jdk:
   - oraclejdk9
 after_success:
-  - ./gradlew cobertura coveralls
+  - bash <(curl -s https://codecov.io/bash)
