@@ -29,6 +29,7 @@ public class ListSteamId {
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
         steamIdList.forEach(steamId -> stringBuilder.append(steamId.toId64()).append(","));
+        stringBuilder.deleteCharAt(stringBuilder.length()-1);
         return stringBuilder.toString();
     }
 }
