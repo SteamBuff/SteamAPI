@@ -1,5 +1,6 @@
 package org.steambuff;
 
+import org.steambuff.method.ListSteamId;
 import org.steambuff.method.SteamId;
 import org.steambuff.driver.Params;
 import org.steambuff.driver.RequestParams;
@@ -22,6 +23,10 @@ public class ReactionDriver {
         return this;
     }
 
+    public ReactionDriver addSteamIds(ListSteamId value) {
+        this.params.addParams("steamids", value.toString());
+        return this;
+    }
 
     public ReactionDriver addKey(String key) {
         this.params.addParams("key", key);

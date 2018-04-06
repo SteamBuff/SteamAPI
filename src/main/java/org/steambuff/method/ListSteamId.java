@@ -9,7 +9,7 @@ public class ListSteamId {
 
 
     public ListSteamId(Collection<SteamId> steamIdList) {
-        steamIdList.addAll(steamIdList);
+        this.steamIdList.addAll(steamIdList);
     }
 
     public ListSteamId(SteamId steamId) {

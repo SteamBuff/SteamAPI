@@ -1,5 +1,6 @@
 package org.steambuff.steamuser.method;
 
+import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.jupiter.api.Test;
 import org.junit.rules.ExpectedException;
@@ -8,12 +9,16 @@ import org.steambuff.SteamApi;
 import org.steambuff.SteamApiTest;
 import org.steambuff.TesterDriver;
 import org.steambuff.exception.SteamApiException;
+import org.steambuff.method.ListSteamId;
 import org.steambuff.method.SteamId;
 import org.steambuff.method.steamuser.SteamUserInterface;
 import org.steambuff.method.steamuser.entity.PlayerSummaries;
 import org.steambuff.method.steamuser.entity.enums.CommunityVisibilityState;
 import org.steambuff.method.steamuser.entity.enums.PersonaState;
 import org.steambuff.method.steamuser.entity.enums.ProfileState;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
@@ -24,7 +29,8 @@ class PlayerSummariesTest {
     private static TesterDriver testDriver = new TesterDriver("api.steampowered.com/ISteamUser/GetPlayerSummaries/v2/").
             addReaction(new ReactionDriver("GET", "PS_good_1").addSteamIds(new SteamId(0, 23)).addKey(SteamApiTest.GOOD_KEY)).
             addReaction(new ReactionDriver("GET", "PS_bad_1").addSteamIds(new SteamId(0, -1)).addKey(SteamApiTest.GOOD_KEY)).
-            addReaction(new ReactionDriver("GET", "PS_bad_2").addSteamIds(new SteamId(0, 1)).addKey(SteamApiTest.GOOD_KEY));
+            addReaction(new ReactionDriver("GET", "PS_bad_2").addSteamIds(new SteamId(0, 1)).addKey(SteamApiTest.GOOD_KEY)).
+            addReaction(new ReactionDriver("GET","PS_good_2").addSteamIds(new ListSteamId().add(new SteamId(0,123)).add(new SteamId(0,-1))).addKey(SteamApiTest.GOOD_KEY));
     @Rule
     public ExpectedException thrown = ExpectedException.none();
     private SteamApi steamApi = new SteamApi(SteamApiTest.GOOD_KEY, testDriver);
@@ -62,6 +68,25 @@ class PlayerSummariesTest {
                 fail();
             }
         }
+    }
+
+
+    @Test
+    void testListPlayers() throws SteamApiException {
+
+        ListSteamId listSteamId = new ListSteamId(new SteamId(0,123)).add(new SteamId(0,-1));
+            List<PlayerSummaries> player =  steamApi.getSteamUserInterface().getPlayerSummaries(listSteamId);
+        Assert.assertEquals(player.size(),1);
+        Assert.assertEquals(player.get(0).getSteamId().toId64(),76561197960265974L);
+
+
+        List<SteamId>  steamIds = new ArrayList<>();
+        steamIds.add(new SteamId(0,123));
+        listSteamId = new ListSteamId(steamIds).add(new SteamId(0,-1));
+        player =  steamApi.getSteamUserInterface().getPlayerSummaries(listSteamId);
+        Assert.assertEquals(player.size(),1);
+        Assert.assertEquals(player.get(0).getSteamId().toId64(),76561197960265974L);
+
     }
 
 }

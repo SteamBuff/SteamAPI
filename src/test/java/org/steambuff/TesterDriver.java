@@ -54,7 +54,7 @@ public class TesterDriver implements DriverInterface {
                 return ResourceHelper.getJSON(reactionDriver.getJSON());
             }
         }
-        throw new SteamApiException("Undefined reaction for: " + params.toString());
+        throw new SteamApiException("Undefined reaction for: " + url+ params.toString());
     }
 
     @Override
