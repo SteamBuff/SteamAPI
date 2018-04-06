@@ -1,12 +1,12 @@
-package org.steambuff.steamuser;
+package org.steambuff.steamuser.method;
 
 import org.junit.Rule;
 import org.junit.jupiter.api.Test;
 import org.junit.rules.ExpectedException;
-import org.steambuff.ResourceHelper;
+import org.steambuff.ReactionDriver;
 import org.steambuff.SteamApi;
-import org.steambuff.driver.DriverInterface;
-import org.steambuff.driver.Params;
+import org.steambuff.SteamApiTest;
+import org.steambuff.TesterDriver;
 import org.steambuff.exception.SteamApiException;
 import org.steambuff.method.SteamId;
 import org.steambuff.method.steamuser.SteamUserInterface;
@@ -20,15 +20,16 @@ import static org.junit.Assert.fail;
 
 class PlayerSummariesTest {
 
-    static String KEY_STEAM_API = "GOOD_KEY";
 
+    private static TesterDriver testDriver = new TesterDriver("api.steampowered.com/ISteamUser/GetPlayerSummaries/v2/").
+            addReaction(new ReactionDriver("GET", "PS_good_1").addSteamIds(new SteamId(0, 23)).addKey(SteamApiTest.GOOD_KEY)).
+            addReaction(new ReactionDriver("GET", "PS_bad_1").addSteamIds(new SteamId(0, -1)).addKey(SteamApiTest.GOOD_KEY)).
+            addReaction(new ReactionDriver("GET", "PS_bad_2").addSteamIds(new SteamId(0, 1)).addKey(SteamApiTest.GOOD_KEY));
     @Rule
     public ExpectedException thrown = ExpectedException.none();
-
-    private DriverInterface driver = new DriverPlayerSummaries();
-
-    private SteamApi steamApi = new SteamApi(KEY_STEAM_API, driver);
+    private SteamApi steamApi = new SteamApi(SteamApiTest.GOOD_KEY, testDriver);
     private SteamUserInterface steamUserInterface = steamApi.getSteamUserInterface();
+
 
     @Test
     void checkParserGood() throws SteamApiException {
@@ -41,6 +42,8 @@ class PlayerSummariesTest {
         assertEquals(tester.getDisplayName(), "Wheels");
         assertEquals(tester.getProfileState(), ProfileState.CONFIGURED);
         assertEquals(tester.getPersonaState(), PersonaState.OFFLINE);
+        assertEquals(tester.getLastLogOff(), 1518382649);
+        assertEquals(tester.getProfileUrl(), "http://steamcommunity.com/id/wheels10/");
     }
 
     @Test()
@@ -50,37 +53,15 @@ class PlayerSummariesTest {
     }
 
     @Test
-    void badJson() throws SteamApiException {
+    void badJson() {
         try {
             assertEquals(0, steamUserInterface.getPlayerSummaries(new SteamId(0, 1)).size());
             fail();
         } catch (SteamApiException exception) {
-
-        }
-    }
-
-}
-
-class DriverPlayerSummaries implements DriverInterface {
-
-    @Override
-    public String getData(String url, Params params, String method) {
-        if (params.getParamByKey("key") == PlayerSummariesTest.KEY_STEAM_API) {
-            switch ((String) params.getParamByKey("steamids")) {
-                case "76561197960265774,":
-                    return ResourceHelper.getJSON("PS_good_1");
-                case "76561197960265726,":
-                    return ResourceHelper.getJSON("PS_bad_1");
-                case "76561197960265730,":
-                    return ResourceHelper.getJSON("PS_bad_2");
+            if (!exception.getMessage().equals("java.lang.IllegalStateException: Not a JSON Object: \"THIS!!!ISNOTJSON\"")) {
+                fail();
             }
-            System.out.println(params.getParamByKey("steamids"));
         }
-        return null;
     }
 
-    @Override
-    public DriverInterface useHttps(boolean useHttps) {
-        return this;
-    }
 }

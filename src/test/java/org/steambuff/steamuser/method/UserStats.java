@@ -1,16 +1,24 @@
-package org.steambuff.steamuser.stats;
+package org.steambuff.steamuser.method;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.steambuff.ReactionDriver;
 import org.steambuff.SteamApi;
 import org.steambuff.SteamApiTest;
+import org.steambuff.TesterDriver;
 import org.steambuff.exception.SteamApiException;
 import org.steambuff.method.SteamId;
 
 public class UserStats {
 
-    private SteamApi apiGood = new SteamApi(SteamApiTest.GOOD_KEY, new DriverUserStats());
-    private SteamApi apiBad = new SteamApi(SteamApiTest.BAD_KEY, new DriverUserStats());
+    private static TesterDriver testDriver = new TesterDriver("api.steampowered.com/ISteamUserStats/GetUserStatsForGame/v0002/").
+            addReaction(new ReactionDriver("GET", "US_good_1").addSteamId(new SteamId(0, 420936993)).addAppId(730).addKey(SteamApiTest.GOOD_KEY)).
+            addReaction(new ReactionDriver("GET", "US_bad_2").addSteamId(new SteamId(0, 1)).addAppId(222).addKey(SteamApiTest.GOOD_KEY)).
+            addReaction(new ReactionDriver("GET", "US_bad_1").addSteamIds(new SteamId(0, 420936994)).addAppId(730).addKey(SteamApiTest.GOOD_KEY));
+
+
+    private SteamApi apiGood = new SteamApi(SteamApiTest.GOOD_KEY, testDriver);
+    private SteamApi apiBad = new SteamApi(SteamApiTest.BAD_KEY, testDriver);
 
     @Test
     public void testGoodParsing() throws SteamApiException {
@@ -24,11 +32,23 @@ public class UserStats {
     }
 
     @Test
-    public void testBadJSON() {
+    public void testNotFullJSON() {
         try {
             org.steambuff.method.steamuser.entity.UserStats stats = apiGood.getSteamUserInterface().getUserStatsForGame(new SteamId(0, 420936994), 730);
             Assert.fail();
         } catch (SteamApiException ignored) {
+        }
+    }
+
+    @Test
+    public void testBadJSON() {
+        try {
+            apiGood.getSteamUserInterface().getUserStatsForGame(new SteamId(0, 1), 222);
+            Assert.fail();
+        } catch (SteamApiException e) {
+            if (!e.getMessage().equals("java.lang.IllegalStateException: Not a JSON Object: \"IS\"")) {
+                Assert.fail();
+            }
         }
     }
 

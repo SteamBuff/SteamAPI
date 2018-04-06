@@ -1,5 +1,6 @@
 package org.steambuff.driver;
 
+
 import java.util.HashMap;
 import java.util.function.Consumer;
 
@@ -28,25 +29,8 @@ public class RequestParams implements Params {
         this.forEach(data -> {
             buffer.append(data.getKey()).append("=").append(data.getValue()).append("&");
         });
-        return buffer.deleteCharAt(buffer.length() - 1).toString();
+
+        return buffer.length() > 0 ? buffer.deleteCharAt(buffer.length() - 1).toString() : buffer.toString();
     }
 }
 
-class KeyValue {
-    private String key;
-    private Object value;
-
-
-    KeyValue(String key, Object value) {
-        this.key = key;
-        this.value = value;
-    }
-
-    public String getKey() {
-        return key;
-    }
-
-    public Object getValue() {
-        return value;
-    }
-}
