@@ -2,32 +2,31 @@ package org.steambuff;
 
 import org.steambuff.driver.DriverInterface;
 import org.steambuff.driver.Params;
-import org.steambuff.driver.RequestParams;
 import org.steambuff.exception.SteamApiException;
 
-import javax.xml.crypto.dsig.keyinfo.KeyValue;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class TesterDriver implements DriverInterface {
 
     private String url;
 
-    private List<ReactionDriver> GETreaction = new ArrayList<>();
-    private List<ReactionDriver> POSTreaction = new ArrayList<>();
+    private List<ReactionDriver> getReaction = new ArrayList<>();
+    private List<ReactionDriver> postReaction = new ArrayList<>();
 
     public TesterDriver(String url) {
         this.url = url;
     }
 
 
-    public TesterDriver addRection(ReactionDriver reactionDriver) {
+    public TesterDriver addReaction(ReactionDriver reactionDriver) {
 
-
-            GETreaction.add(reactionDriver);
-            return this;
+        if (reactionDriver.getMethod().equals("GET")) {
+            getReaction.add(reactionDriver);
+        } else if (reactionDriver.getMethod().equals("POST")) {
+            postReaction.add(reactionDriver);
+        }
+        return this;
     }
 
 
@@ -50,12 +49,12 @@ public class TesterDriver implements DriverInterface {
 
 
     private String processGET(Params params) throws SteamApiException {
-       for(ReactionDriver reactionDriver : GETreaction){
-            if (params.toString().equals(reactionDriver.getParams().toString())){
+        for (ReactionDriver reactionDriver : getReaction) {
+            if (params.toString().equals(reactionDriver.getParams().toString())) {
                 return ResourceHelper.getJSON(reactionDriver.getJSON());
             }
-       }
-       throw new SteamApiException("Undefined reaction for: "+params.toString());
+        }
+        throw new SteamApiException("Undefined reaction for: " + params.toString());
     }
 
     @Override

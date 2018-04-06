@@ -39,4 +39,14 @@ public class ReactionDriver {
     public String getJSON() {
         return jsonResource;
     }
+
+    public ReactionDriver addSteamId(SteamId steamId) {
+        this.params.addParams("steamid",steamId.toId64());
+        return this;
+    }
+
+    public ReactionDriver addAppId(int id) {
+        this.params.addParams("appid",id);
+        return this;
+    }
 }
