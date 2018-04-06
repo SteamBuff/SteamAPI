@@ -1,8 +1,8 @@
 package org.steambuff;
 
 import org.steambuff.driver.DriverInterface;
-import org.steambuff.driver.Params;
 import org.steambuff.exception.SteamApiException;
+import org.steambuff.driver.Params;
 
 import java.util.ArrayList;
 import java.util.List;

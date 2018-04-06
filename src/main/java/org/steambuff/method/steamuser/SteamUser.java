@@ -1,13 +1,11 @@
-package org.steambuff.method.steamuser;
+package org.steambuff.method;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
 import com.google.gson.reflect.TypeToken;
 import org.steambuff.driver.DriverInterface;
 import org.steambuff.exception.SteamApiException;
-import org.steambuff.method.AbstractSteamInterface;
-import org.steambuff.method.ListSteamId;
-import org.steambuff.method.SteamId;
+import org.steambuff.method.steamuser.SteamUserInterface;
 import org.steambuff.method.steamuser.entity.PlayerSummaries;
 import org.steambuff.method.steamuser.entity.UserStats;
 import org.steambuff.method.steamuser.entity.request.RequestPlayerSummaries;

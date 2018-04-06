@@ -17,7 +17,7 @@ public class UserStats {
             addReaction(new ReactionDriver("GET", "US_bad_1").addSteamIds(new SteamId(0, 420936994)).addAppId(730).addKey(SteamApiTest.GOOD_KEY));
 
 
-    private SteamApi apiGood = new SteamApi(SteamApiTest.GOOD_KEY,testDriver);
+    private SteamApi apiGood = new SteamApi(SteamApiTest.GOOD_KEY, testDriver);
     private SteamApi apiBad = new SteamApi(SteamApiTest.BAD_KEY, testDriver);
 
     @Test
@@ -41,14 +41,14 @@ public class UserStats {
     }
 
     @Test
-    public void testBadJSON(){
+    public void testBadJSON() {
         try {
-            apiGood.getSteamUserInterface().getUserStatsForGame(new SteamId(0,1),222);
+            apiGood.getSteamUserInterface().getUserStatsForGame(new SteamId(0, 1), 222);
             Assert.fail();
         } catch (SteamApiException e) {
-           if (!e.getMessage().equals("java.lang.IllegalStateException: Not a JSON Object: \"IS\"")){
-               Assert.fail();
-           }
+            if (!e.getMessage().equals("java.lang.IllegalStateException: Not a JSON Object: \"IS\"")) {
+                Assert.fail();
+            }
         }
     }
 

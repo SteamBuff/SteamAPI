@@ -1,8 +1,8 @@
 package org.steambuff;
 
+import org.steambuff.method.SteamId;
 import org.steambuff.driver.Params;
 import org.steambuff.driver.RequestParams;
-import org.steambuff.method.SteamId;
 
 
 public class ReactionDriver {
@@ -41,12 +41,12 @@ public class ReactionDriver {
     }
 
     public ReactionDriver addSteamId(SteamId steamId) {
-        this.params.addParams("steamid",steamId.toId64());
+        this.params.addParams("steamid", steamId.toId64());
         return this;
     }
 
     public ReactionDriver addAppId(int id) {
-        this.params.addParams("appid",id);
+        this.params.addParams("appid", id);
         return this;
     }
 }

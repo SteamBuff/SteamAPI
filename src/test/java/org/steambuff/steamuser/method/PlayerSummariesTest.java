@@ -21,15 +21,12 @@ import static org.junit.Assert.fail;
 class PlayerSummariesTest {
 
 
-
-    @Rule
-    public ExpectedException thrown = ExpectedException.none();
-
     private static TesterDriver testDriver = new TesterDriver("api.steampowered.com/ISteamUser/GetPlayerSummaries/v2/").
             addReaction(new ReactionDriver("GET", "PS_good_1").addSteamIds(new SteamId(0, 23)).addKey(SteamApiTest.GOOD_KEY)).
             addReaction(new ReactionDriver("GET", "PS_bad_1").addSteamIds(new SteamId(0, -1)).addKey(SteamApiTest.GOOD_KEY)).
             addReaction(new ReactionDriver("GET", "PS_bad_2").addSteamIds(new SteamId(0, 1)).addKey(SteamApiTest.GOOD_KEY));
-
+    @Rule
+    public ExpectedException thrown = ExpectedException.none();
     private SteamApi steamApi = new SteamApi(SteamApiTest.GOOD_KEY, testDriver);
     private SteamUserInterface steamUserInterface = steamApi.getSteamUserInterface();
 
