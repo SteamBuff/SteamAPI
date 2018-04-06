@@ -1,4 +1,4 @@
-package org.steambuff.steamuser.stats;
+package org.steambuff.steamuser.method;
 
 import org.junit.Assert;
 import org.junit.Test;

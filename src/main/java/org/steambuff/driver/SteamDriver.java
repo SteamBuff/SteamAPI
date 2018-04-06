@@ -14,6 +14,9 @@ public class SteamDriver implements DriverInterface {
 
     @Override
     public String getData(String url, Params params, String method) throws SteamApiException {
+        if (url == null) {
+            throw new SteamApiException("Url is null.");
+        }
         try {
             if (useHttp) {
                 url = "https://" + url;
@@ -34,7 +37,11 @@ public class SteamDriver implements DriverInterface {
     }
 
     private String process(String url, Params params) throws IOException {
-        URL steamUrl = new URL(url + "?" + params.toString());
+        String stringParams = "";
+        if (params != null) {
+            stringParams = "?" + params.toString();
+        }
+        URL steamUrl = new URL(url + stringParams);
         URLConnection steamConnection = steamUrl.openConnection();
         BufferedReader in = new BufferedReader(
                 new InputStreamReader(

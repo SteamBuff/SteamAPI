@@ -1,4 +1,4 @@
-package org.steambuff.steamuser;
+package org.steambuff.steamuser.method;
 
 import org.junit.Rule;
 import org.junit.jupiter.api.Test;
