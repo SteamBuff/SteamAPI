@@ -18,7 +18,7 @@ public class PlayerBansTest {
 
     private static TesterDriver testDriver = new TesterDriver("api.steampowered.com/ISteamUser/GetPlayerBans/v1/").
             addReaction(new ReactionDriver("GET", "PB_good_1").addSteamIds(new SteamId(0, 23)).addKey(SteamApiTest.GOOD_KEY)).
-            addReaction(new ReactionDriver("GET", "unidefinedFile").addSteamIds(new SteamId(0, -1)).addKey(SteamApiTest.GOOD_KEY)).
+            addReaction(new ReactionDriver("GET", "emptyFile").addSteamIds(new SteamId(0, -1)).addKey(SteamApiTest.GOOD_KEY)).
             addReaction(new ReactionDriver("GET", "PB_bad_1").addSteamIds(new SteamId(0, -2)).addKey(SteamApiTest.GOOD_KEY)).
             addReaction(new ReactionDriver("GET", "PB_good_2").addSteamIds(new ListSteamId().add(new SteamId(0, 123)).add(new SteamId(0, -1))).addKey(SteamApiTest.GOOD_KEY));
 
@@ -42,7 +42,7 @@ public class PlayerBansTest {
         try {
             steamApi.getSteamUserInterface().getPlayerBans(new SteamId(0, -1));
             Assert.fail();
-        } catch (SteamApiException ignored) {
+        } catch (SteamApiException ignoreda) {
 
         }
     }
