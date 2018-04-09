@@ -13,7 +13,11 @@ public class PlayerBansDeserializer implements JsonDeserializer<List<PlayerBans>
     public List<PlayerBans> deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
         List<PlayerBans> playerBansList = new ArrayList<>();
         Gson gson = new Gson();
-        json.getAsJsonObject().get("players").getAsJsonArray().forEach(data -> {
+        JsonElement element = json.getAsJsonObject().get("players");
+        if (element == null) {
+            throw new JsonSyntaxException("json equals null");
+        }
+        element.getAsJsonArray().forEach(data -> {
             if (!data.isJsonNull()) {
                 playerBansList.add(gson.fromJson(data, PlayerBans.class));
 
