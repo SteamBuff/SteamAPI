@@ -8,7 +8,7 @@ import org.steambuff.exception.SteamApiException;
 
 import java.lang.reflect.Type;
 
-public class AbstractSteamInterface implements SteamApiInterface {
+public abstract class AbstractSteamInterface implements SteamApiInterface {
 
     private String key;
 

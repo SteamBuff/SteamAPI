@@ -39,4 +39,4 @@ class SteamApiExample {
 - [ ] GetRecentlyPlayedGames (v0001)
 - [ ] IsPlayingSharedGame (v0001)
 - [ ] GetSchemaForGame (v2)
-- [ ] GetPlayerBans (v1)
+- [x] GetPlayerBans (v1)

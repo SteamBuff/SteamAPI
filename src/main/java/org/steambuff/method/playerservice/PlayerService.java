@@ -32,4 +32,5 @@ public class PlayerService extends AbstractSteamInterface implements PlayerServi
     public OwnedGames getOwnedGames(SteamId steamId) {
         return getOwnedGames(steamId, false, false, null);
     }
+
 }

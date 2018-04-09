@@ -6,8 +6,10 @@ import com.google.gson.reflect.TypeToken;
 import org.steambuff.driver.DriverInterface;
 import org.steambuff.exception.SteamApiException;
 import org.steambuff.method.steamuser.SteamUserInterface;
+import org.steambuff.method.steamuser.entity.PlayerBans;
 import org.steambuff.method.steamuser.entity.PlayerSummaries;
 import org.steambuff.method.steamuser.entity.UserStats;
+import org.steambuff.method.steamuser.entity.request.RequestPlayerBans;
 import org.steambuff.method.steamuser.entity.request.RequestPlayerSummaries;
 import org.steambuff.method.steamuser.entity.request.RequestStatsGame;
 
@@ -47,6 +49,32 @@ public class SteamUser extends AbstractSteamInterface implements SteamUserInterf
     public UserStats getUserStatsForGame(SteamId steamId, int appId) throws SteamApiException {
         try {
             return parse(sendGET(new RequestStatsGame().add(steamId).add(appId)), UserStats.class);
+        } catch (JsonSyntaxException exception) {
+            throw new SteamApiException(exception.getMessage());
+        }
+    }
+
+    @Override
+    public List<PlayerBans> getPlayerBans(ListSteamId listSteamId) throws SteamApiException {
+        try {
+            return parse(sendGET(
+                    new RequestPlayerBans().add(listSteamId)),
+                    new TypeToken<List<PlayerBans>>() {
+                    }.getType()
+            );
+        } catch (JsonSyntaxException exception) {
+            throw new SteamApiException(exception.getMessage());
+        }
+    }
+
+    @Override
+    public List<PlayerBans> getPlayerBans(SteamId steamId) throws SteamApiException {
+        try {
+            return parse(sendGET(
+                    new RequestPlayerBans().add(steamId)),
+                    new TypeToken<List<PlayerBans>>() {
+                    }.getType()
+            );
         } catch (JsonSyntaxException exception) {
             throw new SteamApiException(exception.getMessage());
         }
