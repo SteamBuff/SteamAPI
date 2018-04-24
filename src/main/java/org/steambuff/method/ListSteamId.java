@@ -25,6 +25,10 @@ public class ListSteamId {
         return this;
     }
 
+    public int size(){
+        return steamIdList.size();
+    }
+
     @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();

@@ -3,9 +3,11 @@ package org.steambuff.method.playerservice;
 
 import com.google.gson.Gson;
 import org.steambuff.driver.DriverInterface;
+import org.steambuff.exception.SteamApiException;
 import org.steambuff.method.AbstractSteamInterface;
 import org.steambuff.method.SteamId;
 import org.steambuff.method.playerservice.entity.OwnedGames;
+import org.steambuff.method.playerservice.entity.request.RequestOwnedGames;
 
 import java.util.List;
 
@@ -19,17 +21,20 @@ public class PlayerService extends AbstractSteamInterface implements PlayerServi
 
     //TODO Edit SteamID to Interface SteamID
     @Override
-    public OwnedGames getOwnedGames(SteamId steamId, boolean includeAppInfo, boolean includePlayedFreeGames, List<Long> filterAppId) {
-        return new OwnedGames();
+    public OwnedGames getOwnedGames(SteamId steamId, boolean includeAppInfo, boolean includePlayedFreeGames, List<Long> filterAppId) throws SteamApiException {
+        return parse(sendGET(new RequestOwnedGames().add(steamId).
+                includeAppInfo(includeAppInfo).
+                includePlayedFreeGames(includePlayedFreeGames)),
+                OwnedGames.class);
     }
 
     @Override
-    public OwnedGames getOwnedGames(SteamId steamId, boolean includeAppInfo) {
+    public OwnedGames getOwnedGames(SteamId steamId, boolean includeAppInfo) throws SteamApiException {
         return getOwnedGames(steamId, includeAppInfo, false, null);
     }
 
     @Override
-    public OwnedGames getOwnedGames(SteamId steamId) {
+    public OwnedGames getOwnedGames(SteamId steamId) throws SteamApiException {
         return getOwnedGames(steamId, false, false, null);
     }
 

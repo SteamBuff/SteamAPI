@@ -8,6 +8,8 @@ import org.steambuff.driver.SteamDriver;
 import org.steambuff.method.SteamUser;
 import org.steambuff.method.playerservice.PlayerService;
 import org.steambuff.method.playerservice.PlayerServiceInterface;
+import org.steambuff.method.playerservice.deserializer.OwnedGamesDeserializer;
+import org.steambuff.method.playerservice.entity.OwnedGames;
 import org.steambuff.method.steamuser.SteamUserInterface;
 import org.steambuff.method.steamuser.deserializer.PlayerBansDeserializer;
 import org.steambuff.method.steamuser.deserializer.PlayerSummariesDeserializer;
@@ -70,6 +72,7 @@ public final class SteamApi {
         gsonBuilder.registerTypeAdapter(new TypeToken<List<PlayerSummaries>>() {
         }.getType(), new PlayerSummariesDeserializer());
         gsonBuilder.registerTypeAdapter(UserStats.class, new UserStatsDeserializer());
+        gsonBuilder.registerTypeAdapter(OwnedGames.class, new OwnedGamesDeserializer());
         gsonBuilder.registerTypeAdapter(ProgressGame.class, new ProgressGameDeserializer());
         gsonBuilder.registerTypeAdapter(new TypeToken<List<PlayerBans>>() {
         }.getType(), new PlayerBansDeserializer());

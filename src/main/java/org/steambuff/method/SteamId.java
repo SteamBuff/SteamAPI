@@ -31,6 +31,17 @@ public class SteamId implements SteamIdInterface {
     }
 
     @Override
+    public int getUniverse() {
+        return universe;
+    }
+
+    @Override
+    public long getId() {
+        return id;
+    }
+
+
+    @Override
     public String toString() {
         return "STEAM_0:" + universe + ":" + id;
     }

@@ -8,4 +8,10 @@ public interface SteamIdInterface {
      * @return steamId
      */
     public long toId64();
+
+
+    public int getUniverse();
+
+
+    public long getId();
 }
