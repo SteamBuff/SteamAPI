@@ -24,7 +24,24 @@ class SteamApiExample {
 }
 ```
 
+## Usage in your project
 
+### Maven 
+
+```
+<dependency>
+    <groupId>org.steambuff</groupId>
+    <artifactId>SteamAPI</artifactId>
+    <version>0.4.0-beta</version>
+</dependency>
+```
+
+### Gradle
+```
+compile 'org.steambuff:SteamAPI:0.4.0-beta'
+```
+
+[Another system](https://search.maven.org/#artifactdetails%7Corg.steambuff%7CSteamAPI%7C0.4.0-beta%7Cjar)
 
 ## Available method's
 - [x] GetPlayerSummaries (v0002)
