@@ -50,18 +50,4 @@ jacocoTestReport {
     }
 }
 
-uploadArchives {
-
-    repositories {
-        mavenDeployer {
-            repository(url: "https://oss.sonatype.org/content/repositories/releases/") {
-                authentication(userName: ossrhUsername, password:ossrhPassword)
-            }
-            pom.version = version
-            pom.artifactId = archivesBaseName
-            pom.groupId = group
-        }
-    }
-}
-
 check.dependsOn jacocoTestReport
