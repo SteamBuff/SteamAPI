@@ -48,7 +48,6 @@ compile 'org.steambuff:SteamAPI:0.4.5-beta'
 - [ ] GetNewsForApp (v0002)
 - [ ] GetGlobalAchievementPercentagesForApp (v0002)
 - [ ] GetGlobalStatsForGame (v0001)
-- [ ] GetPlayerSummaries (v0002)
 - [ ] GetFriendList (v0001)
 - [ ] GetPlayerAchievements (v0001)
 - [x] GetUserStatsForGame (v0002)
