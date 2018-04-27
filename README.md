@@ -4,7 +4,7 @@
 
 [![codecov](https://codecov.io/gh/SteamBuff/SteamAPI/branch/master/graph/badge.svg)](https://codecov.io/gh/SteamBuff/SteamAPI)
 [![Build Status](https://travis-ci.org/SteamBuff/SteamAPI.svg?branch=master)](https://travis-ci.org/SteamBuff/SteamAPI)
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.steambuff/SteamAPI/badge.svg?style=flat)
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.steambuff/SteamAPI/badge.svg?style=flat)](https://maven-badges.herokuapp.com/maven-central/org.steambuff/SteamAPI/)
 
 ## Example
 
