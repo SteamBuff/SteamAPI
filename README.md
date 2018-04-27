@@ -41,7 +41,7 @@ class SteamApiExample {
 compile 'org.steambuff:SteamAPI:0.4.0-beta'
 ```
 
-[Another system](https://search.maven.org/#artifactdetails%7Corg.steambuff%7CSteamAPI%7C0.4.0-beta%7Cjar)
+[Another system](https://mvnrepository.com/artifact/org.steambuff/SteamAPI)
 
 ## Available method's
 - [x] GetPlayerSummaries (v0002)
