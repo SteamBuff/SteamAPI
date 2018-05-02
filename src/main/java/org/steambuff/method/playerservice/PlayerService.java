@@ -23,9 +23,14 @@ public class PlayerService extends AbstractSteamInterface implements PlayerServi
     @Override
     public OwnedGames getOwnedGames(SteamId steamId, boolean includeAppInfo, boolean includePlayedFreeGames, List<Long> filterAppId) throws SteamApiException {
         return parse(sendGET(new RequestOwnedGames().add(steamId).
-                includeAppInfo(includeAppInfo).
-                includePlayedFreeGames(includePlayedFreeGames)),
+                        includeAppInfo(includeAppInfo).
+                        includePlayedFreeGames(includePlayedFreeGames)),
                 OwnedGames.class);
+    }
+
+    @Override
+    public OwnedGames getOwnedGames(SteamId steamId, boolean includeAppInfo, boolean includePlayedFreeGames) throws SteamApiException {
+        return getOwnedGames(steamId, includeAppInfo, includePlayedFreeGames, null);
     }
 
     @Override

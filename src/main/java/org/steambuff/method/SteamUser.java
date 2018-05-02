@@ -8,9 +8,11 @@ import org.steambuff.exception.SteamApiException;
 import org.steambuff.method.steamuser.SteamUserInterface;
 import org.steambuff.method.steamuser.entity.PlayerBans;
 import org.steambuff.method.steamuser.entity.PlayerSummaries;
+import org.steambuff.method.steamuser.entity.SchemaForGame;
 import org.steambuff.method.steamuser.entity.UserStats;
 import org.steambuff.method.steamuser.entity.request.RequestPlayerBans;
 import org.steambuff.method.steamuser.entity.request.RequestPlayerSummaries;
+import org.steambuff.method.steamuser.entity.request.RequestSchemaForGame;
 import org.steambuff.method.steamuser.entity.request.RequestStatsGame;
 
 import java.util.List;
@@ -78,5 +80,13 @@ public class SteamUser extends AbstractSteamInterface implements SteamUserInterf
         } catch (JsonSyntaxException exception) {
             throw new SteamApiException(exception.getMessage());
         }
+    }
+
+    @Override
+    public SchemaForGame getSchemaForGame(int appId) throws SteamApiException {
+        return parse(sendGET(
+                new RequestSchemaForGame().add(appId)),
+                SchemaForGame.class
+        );
     }
 }

@@ -25,8 +25,8 @@ public class RequestOwnedGames implements RequestEntity<RequestOwnedGames> {
     public Params getParams() {
         return new RequestParams().
                 addParams("steamid", this.steamId.toId64()).
-                addParams("include_appinfo", this.includeAppInfo?1:0).
-                addParams("include_played_free_games", this.includePlayedFreeGames?1:0);
+                addParams("include_appinfo", this.includeAppInfo ? 1 : 0).
+                addParams("include_played_free_games", this.includePlayedFreeGames ? 1 : 0);
     }
 
     @Override

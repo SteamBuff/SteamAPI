@@ -1,7 +1,6 @@
 package org.steambuff.method.playerservice.entity;
 
 import com.google.gson.annotations.SerializedName;
-import org.steambuff.method.SteamId;
 
 import java.util.List;
 

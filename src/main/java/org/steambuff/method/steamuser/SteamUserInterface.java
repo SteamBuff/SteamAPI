@@ -5,6 +5,7 @@ import org.steambuff.method.ListSteamId;
 import org.steambuff.method.SteamId;
 import org.steambuff.method.steamuser.entity.PlayerBans;
 import org.steambuff.method.steamuser.entity.PlayerSummaries;
+import org.steambuff.method.steamuser.entity.SchemaForGame;
 import org.steambuff.method.steamuser.entity.UserStats;
 
 import java.util.List;
@@ -20,4 +21,8 @@ public interface SteamUserInterface {
     List<PlayerBans> getPlayerBans(ListSteamId listSteamId) throws SteamApiException;
 
     List<PlayerBans> getPlayerBans(SteamId steamId) throws SteamApiException;
+
+
+    SchemaForGame getSchemaForGame(int appId) throws SteamApiException;
+
 }

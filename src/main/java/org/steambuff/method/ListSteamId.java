@@ -25,7 +25,7 @@ public class ListSteamId {
         return this;
     }
 
-    public int size(){
+    public int size() {
         return steamIdList.size();
     }
 

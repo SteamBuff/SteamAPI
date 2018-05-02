@@ -55,5 +55,5 @@ compile 'org.steambuff:SteamAPI:0.4.0-beta'
 - [x] GetOwnedGames (v0001)
 - [ ] GetRecentlyPlayedGames (v0001)
 - [ ] IsPlayingSharedGame (v0001)
-- [ ] GetSchemaForGame (v2)
+- [x] GetSchemaForGame (v2)
 - [x] GetPlayerBans (v1)

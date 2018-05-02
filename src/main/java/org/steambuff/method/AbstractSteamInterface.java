@@ -2,7 +2,6 @@ package org.steambuff.method;
 
 
 import com.google.gson.Gson;
-import com.google.gson.JsonParseException;
 import com.google.gson.JsonSyntaxException;
 import org.steambuff.driver.DriverInterface;
 import org.steambuff.exception.SteamApiException;
@@ -33,14 +32,16 @@ public abstract class AbstractSteamInterface implements SteamApiInterface {
 
     protected <T> T parse(String data, Type type) throws JsonSyntaxException {
         T entity = gson.fromJson(data, type);
-        if (entity==null){
+        if (entity == null) {
             throw new JsonSyntaxException("Response entity is null");
         }
         return entity;
     }
 
     protected String sendGET(RequestEntity requestEntity) throws SteamApiException {
-        return getDriver().getData(requestEntity.getURL(), requestEntity.getParams().addParams("key", getKey()), "GET");
+        return getDriver().getData(
+                requestEntity.getURL(),
+                requestEntity.getParams().addParams("key", getKey()), "GET");
     }
 
 }
