@@ -32,13 +32,13 @@ class SteamApiExample {
 <dependency>
     <groupId>org.steambuff</groupId>
     <artifactId>SteamAPI</artifactId>
-    <version>0.4.5-beta</version>
+    <version>0.5-beta</version>
 </dependency>
 ```
 
 ### Gradle
 ```
-compile 'org.steambuff:SteamAPI:0.4.5-beta'
+compile 'org.steambuff:SteamAPI:0.5-beta'
 ```
 
 [Another system](https://mvnrepository.com/artifact/org.steambuff/SteamAPI)
