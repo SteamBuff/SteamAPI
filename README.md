@@ -43,6 +43,8 @@ compile 'org.steambuff:SteamAPI:0.5-beta'
 
 [Another system](https://mvnrepository.com/artifact/org.steambuff/SteamAPI)
 
+[JavaDoc](https://steambuff.github.io/SteamAPI/index.html?overview-summary.html)
+
 ## Available method's
 - [x] GetPlayerSummaries (v0002)
 - [ ] GetNewsForApp (v0002)
