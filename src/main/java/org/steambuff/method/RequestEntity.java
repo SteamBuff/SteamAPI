@@ -11,8 +11,8 @@ public interface RequestEntity<T extends RequestEntity<T>> {
     /**
      * Added object to Request
      *
-     * @param object
-     * @return
+     * @param object Object
+     * @return {@code this}
      */
     public T add(Object object);
 

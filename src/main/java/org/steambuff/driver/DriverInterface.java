@@ -11,8 +11,15 @@ public interface DriverInterface {
      * @param params Params for Request
      * @param method Type request
      * @return Data form resource
+     * @throws SteamApiException On error Steam service or Driver
      */
     String getData(String url, Params params, String method) throws SteamApiException;
 
+    /**
+     * Use https protocol
+     *
+     * @param useHttps Use https
+     * @return {@code this}
+     */
     DriverInterface useHttps(boolean useHttps);
 }

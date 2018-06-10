@@ -10,7 +10,7 @@ public interface SteamIdInterface {
     public long toId64();
 
 
-    public int getUniverse();
+    public int getLastBit();
 
 
     public long getId();
