@@ -4,6 +4,8 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.steambuff.SteamApi;
 import org.steambuff.method.SteamId;
+import org.steambuff.method.util.exception.SteamAdditionalUtilityException;
+import org.steambuff.method.util.exception.SteamAdditionalUtilityIllegalArgumentException;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -30,10 +32,25 @@ public class SteamAdditionalUtilityTest {
         Assert.assertEquals(76561198802139714L, steamId.toId64());
     }
 
+    @Test(expected = SteamAdditionalUtilityIllegalArgumentException.class)
+    public void getSteamIdByPageInvalidUrl() throws MalformedURLException {
+        steamApi.getSteamAdditionalUtility().getSteamIdByPage(new URL("https://notsteamcommunity.com/id/bigtows"));
+    }
+
+    @Test(expected = SteamAdditionalUtilityException.class)
+    public void getSteamIdByPageNotFound() throws MalformedURLException {
+        steamApi.getSteamAdditionalUtility().getSteamIdByPage(new URL("https://steamcommunity.com/id/1Not%20LOL"));
+    }
+
     @Test
     public void getSteamIdByLogin() {
         SteamId steamId = steamApi.getSteamAdditionalUtility().getSteamIdByLogin("BigTows");
         Assert.assertEquals(76561198802139714L, steamId.toId64());
+    }
+
+    @Test(expected = SteamAdditionalUtilityException.class)
+    public void getSteamIdByLoginNotFound() {
+        steamApi.getSteamAdditionalUtility().getSteamIdByLogin("It's my new Login");
     }
 
 }
