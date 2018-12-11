@@ -41,19 +41,6 @@ jar {
     from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
 }
 
-uploadArchives {
-
-    repositories {
-        mavenDeployer {
-            repository(url: "https://oss.sonatype.org/content/repositories/releases/") {
-                authentication(userName: ossrhUsername, password:ossrhPassword)
-            }
-            pom.version = "0.6-beta"
-            pom.artifactId = "SteamAPI"
-            pom.groupId = "org.steambuff"
-        }
-    }
-}
 
 
 jacocoTestReport {
