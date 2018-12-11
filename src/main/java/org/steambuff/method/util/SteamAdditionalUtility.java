@@ -13,7 +13,7 @@ public interface SteamAdditionalUtility {
      * Get steamId by steam profile steam.
      *
      * @param url URL for profile steam
-     * @return SteamId
+     * @return SteamId steam id by page
      */
     SteamId getSteamIdByPage(URL url);
 
@@ -21,7 +21,7 @@ public interface SteamAdditionalUtility {
      * Get steamId by login
      *
      * @param login https://steamcommunity.com/id/bigtows - BigTows is login
-     * @return SteamId
+     * @return SteamId steam id by login
      */
     SteamId getSteamIdByLogin(String login);
 }

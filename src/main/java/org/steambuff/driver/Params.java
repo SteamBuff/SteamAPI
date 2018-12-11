@@ -2,6 +2,9 @@ package org.steambuff.driver;
 
 import java.util.function.Consumer;
 
+/**
+ * The interface Params.
+ */
 public interface Params {
 
     /**
@@ -9,11 +12,22 @@ public interface Params {
      *
      * @param key   Unique key params
      * @param value value of key
-     * @return self
+     * @return self params
      */
-    public Params addParams(String key, Object value);
+    Params addParams(String key, Object value);
 
-    public Object getParamByKey(String key);
+    /**
+     * Gets param by key.
+     *
+     * @param key the key
+     * @return the param by key
+     */
+    Object getParamByKey(String key);
 
-    public void forEach(Consumer<? super KeyValue> action);
+    /**
+     * For each.
+     *
+     * @param action the action
+     */
+    void forEach(Consumer<? super KeyValue> action);
 }

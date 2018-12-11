@@ -4,6 +4,9 @@ import org.steambuff.driver.Params;
 import org.steambuff.driver.RequestParams;
 import org.steambuff.method.RequestEntity;
 
+/**
+ * The type Request schema for game.
+ */
 public class RequestSchemaForGame implements RequestEntity {
 
     private int appId;

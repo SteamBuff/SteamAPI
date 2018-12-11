@@ -132,7 +132,7 @@ public final class SteamApi {
     /**
      * Get SteamAdditionalUtility
      *
-     * @return SteamAdditionalUtility
+     * @return SteamAdditionalUtility steam additional utility
      */
     public SteamAdditionalUtility getSteamAdditionalUtility() {
         return steamAdditionalUtility;

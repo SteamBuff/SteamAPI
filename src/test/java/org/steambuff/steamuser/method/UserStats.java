@@ -9,6 +9,9 @@ import org.steambuff.TesterDriver;
 import org.steambuff.exception.SteamApiException;
 import org.steambuff.method.SteamId;
 
+/**
+ * The type User stats.
+ */
 public class UserStats {
 
     private static TesterDriver testDriver = new TesterDriver("api.steampowered.com/ISteamUserStats/GetUserStatsForGame/v0002/").
@@ -20,6 +23,11 @@ public class UserStats {
     private SteamApi apiGood = new SteamApi(SteamApiTest.GOOD_KEY, testDriver);
     private SteamApi apiBad = new SteamApi(SteamApiTest.BAD_KEY, testDriver);
 
+    /**
+     * Test good parsing.
+     *
+     * @throws SteamApiException the steam api exception
+     */
     @Test
     public void testGoodParsing() throws SteamApiException {
         org.steambuff.method.steamuser.entity.UserStats stats = apiGood.getSteamUserInterface().getUserStatsForGame(new SteamId(0, 420936993), 730);
@@ -31,6 +39,9 @@ public class UserStats {
         Assert.assertEquals(stats.getProgressGame().getStatsList().get(10).getValue(), 70);
     }
 
+    /**
+     * Test not full json.
+     */
     @Test
     public void testNotFullJSON() {
         try {
@@ -40,6 +51,9 @@ public class UserStats {
         }
     }
 
+    /**
+     * Test bad json.
+     */
     @Test
     public void testBadJSON() {
         try {

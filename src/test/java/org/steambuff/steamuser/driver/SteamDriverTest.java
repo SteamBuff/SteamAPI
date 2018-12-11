@@ -7,15 +7,24 @@ import org.steambuff.driver.RequestParams;
 import org.steambuff.driver.SteamDriver;
 import org.steambuff.exception.SteamApiException;
 
+/**
+ * The type Steam driver test.
+ */
 class SteamDriverTest {
 
     private SteamDriver steamDriver = new SteamDriver();
 
+    /**
+     * Gets data with null params.
+     */
     @Test
     void getDataWithNullParams() {
         sendRequestToGoogle(true);
     }
 
+    /**
+     * Gets data with null url.
+     */
     @Test
     void getDataWithNullUrl() {
         try {
@@ -28,6 +37,9 @@ class SteamDriverTest {
         }
     }
 
+    /**
+     * Use https.
+     */
     @Test
     void useHttps() {
         steamDriver.useHttps(false);
@@ -36,6 +48,9 @@ class SteamDriverTest {
         sendRequestToGoogle(true);
     }
 
+    /**
+     * Test good.
+     */
     @Test
     void testGood() {
         try {
@@ -45,6 +60,9 @@ class SteamDriverTest {
         }
     }
 
+    /**
+     * Check params.
+     */
     @Test
     void checkParams(){
         Params params = new RequestParams();

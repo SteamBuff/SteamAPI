@@ -11,9 +11,19 @@ import org.steambuff.method.playerservice.entity.request.RequestOwnedGames;
 
 import java.util.List;
 
+/**
+ * The type Player service.
+ */
 public class PlayerService extends AbstractSteamInterface implements PlayerServiceInterface {
 
 
+    /**
+     * Instantiates a new Player service.
+     *
+     * @param key             the key
+     * @param driverInterface the driver interface
+     * @param gson            the gson
+     */
     public PlayerService(String key, DriverInterface driverInterface, Gson gson) {
         super(key, driverInterface, gson);
     }

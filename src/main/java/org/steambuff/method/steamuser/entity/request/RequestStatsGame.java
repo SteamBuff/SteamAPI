@@ -5,6 +5,9 @@ import org.steambuff.driver.RequestParams;
 import org.steambuff.method.RequestEntity;
 import org.steambuff.method.SteamIdInterface;
 
+/**
+ * The type Request stats game.
+ */
 public class RequestStatsGame implements RequestEntity {
 
 

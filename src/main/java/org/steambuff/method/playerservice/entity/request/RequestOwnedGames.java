@@ -5,6 +5,9 @@ import org.steambuff.driver.RequestParams;
 import org.steambuff.method.RequestEntity;
 import org.steambuff.method.SteamId;
 
+/**
+ * The type Request owned games.
+ */
 public class RequestOwnedGames implements RequestEntity<RequestOwnedGames> {
 
 
@@ -34,11 +37,23 @@ public class RequestOwnedGames implements RequestEntity<RequestOwnedGames> {
         return url;
     }
 
+    /**
+     * Include app info request owned games.
+     *
+     * @param include the include
+     * @return the request owned games
+     */
     public RequestOwnedGames includeAppInfo(boolean include) {
         this.includeAppInfo = include;
         return this;
     }
 
+    /**
+     * Include played free games request owned games.
+     *
+     * @param include the include
+     * @return the request owned games
+     */
     public RequestOwnedGames includePlayedFreeGames(boolean include) {
         this.includePlayedFreeGames = include;
         return this;

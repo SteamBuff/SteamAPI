@@ -23,6 +23,9 @@ import java.util.List;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
+/**
+ * The type Player summaries test.
+ */
 class PlayerSummariesTest {
 
 
@@ -31,12 +34,20 @@ class PlayerSummariesTest {
             addReaction(new ReactionDriver("GET", "PS_bad_1").addSteamIds(new SteamId(0, -1)).addKey(SteamApiTest.GOOD_KEY)).
             addReaction(new ReactionDriver("GET", "PS_bad_2").addSteamIds(new SteamId(0, 1)).addKey(SteamApiTest.GOOD_KEY)).
             addReaction(new ReactionDriver("GET","PS_good_2").addSteamIds(new ListSteamId().add(new SteamId(0,123)).add(new SteamId(0,-1))).addKey(SteamApiTest.GOOD_KEY));
+    /**
+     * The Thrown.
+     */
     @Rule
     public ExpectedException thrown = ExpectedException.none();
     private SteamApi steamApi = new SteamApi(SteamApiTest.GOOD_KEY, testDriver);
     private SteamUserInterface steamUserInterface = steamApi.getSteamUserInterface();
 
 
+    /**
+     * Check parser good.
+     *
+     * @throws SteamApiException the steam api exception
+     */
     @Test
     void checkParserGood() throws SteamApiException {
         PlayerSummaries tester = steamUserInterface.getPlayerSummaries(new SteamId(0, 23)).get(0);
@@ -52,12 +63,20 @@ class PlayerSummariesTest {
         assertEquals(tester.getProfileUrl(), "http://steamcommunity.com/id/wheels10/");
     }
 
+    /**
+     * Bad steam id.
+     *
+     * @throws SteamApiException the steam api exception
+     */
     @Test()
     void badSteamId() throws SteamApiException {
         assertEquals(0, steamUserInterface.getPlayerSummaries(new SteamId(0, -1)).size());
 
     }
 
+    /**
+     * Bad json.
+     */
     @Test
     void badJson() {
         try {
@@ -71,11 +90,16 @@ class PlayerSummariesTest {
     }
 
 
+    /**
+     * Test list players.
+     *
+     * @throws SteamApiException the steam api exception
+     */
     @Test
     void testListPlayers() throws SteamApiException {
 
         ListSteamId listSteamId = new ListSteamId(new SteamId(0,123)).add(new SteamId(0,-1));
-            List<PlayerSummaries> player =  steamApi.getSteamUserInterface().getPlayerSummaries(listSteamId);
+        List<PlayerSummaries> player = steamApi.getSteamUserInterface().getPlayerSummaries(listSteamId);
         Assert.assertEquals(player.size(),1);
         Assert.assertEquals(player.get(0).getSteamId().toId64(),76561197960265974L);
 

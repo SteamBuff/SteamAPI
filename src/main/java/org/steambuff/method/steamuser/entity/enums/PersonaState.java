@@ -1,14 +1,44 @@
 package org.steambuff.method.steamuser.entity.enums;
 
+/**
+ * The enum Persona state.
+ */
 public enum PersonaState {
+    /**
+     * Offline persona state.
+     */
     OFFLINE,
+    /**
+     * Online persona state.
+     */
     ONLINE,
+    /**
+     * Busy persona state.
+     */
     BUSY,
+    /**
+     * Away persona state.
+     */
     AWAY,
+    /**
+     * Snooze persona state.
+     */
     SNOOZE,
+    /**
+     * Looking to trade persona state.
+     */
     LOOKING_TO_TRADE,
+    /**
+     * Looking to play persona state.
+     */
     LOOKING_TO_PLAY;
 
+    /**
+     * Gets enum by int.
+     *
+     * @param personaStateInt the persona state int
+     * @return the enum by int
+     */
     public static PersonaState getEnumByInt(int personaStateInt) {
         switch (personaStateInt) {
             case 0:

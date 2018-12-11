@@ -2,6 +2,9 @@ package org.steambuff.driver;
 
 import org.steambuff.exception.SteamApiException;
 
+/**
+ * The interface Driver interface.
+ */
 public interface DriverInterface {
 
     /**

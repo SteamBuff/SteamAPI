@@ -5,6 +5,9 @@ import org.steambuff.method.steamuser.entity.SchemaForGame;
 
 import java.lang.reflect.Type;
 
+/**
+ * The type Schema for game deserializer.
+ */
 public class SchemaForGameDeserializer implements JsonDeserializer<SchemaForGame> {
 
 

@@ -6,6 +6,9 @@ import org.steambuff.method.steamuser.entity.UserStats;
 
 import java.lang.reflect.Type;
 
+/**
+ * The type User stats deserializer.
+ */
 public class UserStatsDeserializer implements JsonDeserializer<UserStats> {
 
     @Override

@@ -1,17 +1,30 @@
 package org.steambuff.method;
 
+/**
+ * The interface Steam id interface.
+ */
 public interface SteamIdInterface {
 
     /**
      * Возвращает steam ID в 64 формате
      *
-     * @return steamId
+     * @return steamId long
      */
-    public long toId64();
+    long toId64();
 
 
-    public int getLastBit();
+    /**
+     * Gets last bit.
+     *
+     * @return the last bit
+     */
+    int getLastBit();
 
 
-    public long getId();
+    /**
+     * Gets id.
+     *
+     * @return the id
+     */
+    long getId();
 }
