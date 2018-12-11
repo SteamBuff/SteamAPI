@@ -9,7 +9,7 @@ apply plugin: 'signing'
 sourceCompatibility = 1.8
 group = "org.steambuff"
 archivesBaseName = "SteamAPI"
-version = "0.5.2-beta"
+version = "0.6-beta"
 
 repositories {
     mavenCentral()
@@ -48,7 +48,7 @@ uploadArchives {
             repository(url: "https://oss.sonatype.org/content/repositories/releases/") {
                 authentication(userName: ossrhUsername, password:ossrhPassword)
             }
-            pom.version = "0.5.2-beta"
+            pom.version = "0.6-beta"
             pom.artifactId = "SteamAPI"
             pom.groupId = "org.steambuff"
         }
