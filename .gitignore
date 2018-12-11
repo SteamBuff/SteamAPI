@@ -7,3 +7,5 @@
 out/
 
 build/
+
+src/test/java/org/steambuff/SteamApiTest\.java

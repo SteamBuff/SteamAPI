@@ -9,7 +9,7 @@ apply plugin: 'signing'
 sourceCompatibility = 1.8
 group = "org.steambuff"
 archivesBaseName = "SteamAPI"
-version = "0.5-beta"
+version = "0.5.2-beta"
 
 repositories {
     mavenCentral()
@@ -41,6 +41,19 @@ jar {
     from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
 }
 
+uploadArchives {
+
+    repositories {
+        mavenDeployer {
+            repository(url: "https://oss.sonatype.org/content/repositories/releases/") {
+                authentication(userName: ossrhUsername, password:ossrhPassword)
+            }
+            pom.version = "0.5.2-beta"
+            pom.artifactId = "SteamAPI"
+            pom.groupId = "org.steambuff"
+        }
+    }
+}
 
 
 jacocoTestReport {
