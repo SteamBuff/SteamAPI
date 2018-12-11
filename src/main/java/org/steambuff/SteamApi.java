@@ -13,6 +13,8 @@ import org.steambuff.method.playerservice.entity.OwnedGames;
 import org.steambuff.method.steamuser.SteamUserInterface;
 import org.steambuff.method.steamuser.deserializer.*;
 import org.steambuff.method.steamuser.entity.*;
+import org.steambuff.method.util.SteamAdditionalUtility;
+import org.steambuff.method.util.SteamAdditionalUtilityImpl;
 
 import java.util.List;
 
@@ -42,6 +44,11 @@ public final class SteamApi {
      * SteamUserInterface steam.
      */
     private SteamUserInterface steamUserInterface;
+
+    /**
+     * Steam Additional Utility
+     */
+    private SteamAdditionalUtility steamAdditionalUtility;
 
     /**
      * Component for parse JSON.
@@ -100,6 +107,7 @@ public final class SteamApi {
     private void initInterfaces() {
         serviceInterface = new PlayerService(this.key, this.driver, this.gson);
         steamUserInterface = new SteamUser(this.key, this.driver, this.gson);
+        steamAdditionalUtility = new SteamAdditionalUtilityImpl(this.driver);
     }
 
 
@@ -119,5 +127,14 @@ public final class SteamApi {
      */
     public SteamUserInterface getSteamUserInterface() {
         return steamUserInterface;
+    }
+
+    /**
+     * Get SteamAdditionalUtility
+     *
+     * @return SteamAdditionalUtility
+     */
+    public SteamAdditionalUtility getSteamAdditionalUtility() {
+        return steamAdditionalUtility;
     }
 }

@@ -2,9 +2,8 @@ package org.steambuff.steamuser.method;
 
 import org.junit.Assert;
 import org.junit.Test;
-import org.steambuff.driver.SteamDriver;
+import org.steambuff.SteamApi;
 import org.steambuff.method.SteamId;
-import org.steambuff.method.util.SteamAdditionalUtilityImpl;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -18,7 +17,7 @@ public class SteamAdditionalUtilityTest {
     /**
      * steamAdditionalUtility interface
      */
-    private SteamAdditionalUtilityImpl steamAdditionalUtility = new SteamAdditionalUtilityImpl(new SteamDriver());
+    private SteamApi steamApi = SteamApi.getInstance("");
 
     /**
      * Gets steam id by page.
@@ -27,7 +26,13 @@ public class SteamAdditionalUtilityTest {
      */
     @Test
     public void getSteamIdByPage() throws MalformedURLException {
-        SteamId steamId = steamAdditionalUtility.getSteamIdByPage(new URL("https://steamcommunity.com/id/bigtows"));
+        SteamId steamId = steamApi.getSteamAdditionalUtility().getSteamIdByPage(new URL("https://steamcommunity.com/id/bigtows"));
+        Assert.assertEquals(76561198802139714L, steamId.toId64());
+    }
+
+    @Test
+    public void getSteamIdByLogin() {
+        SteamId steamId = steamApi.getSteamAdditionalUtility().getSteamIdByLogin("BigTows");
         Assert.assertEquals(76561198802139714L, steamId.toId64());
     }
 

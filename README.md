@@ -62,3 +62,4 @@ compile 'org.steambuff:SteamAPI:0.5-beta'
 ## Additional methods
 
 - getSteamIdByPage (Get SteamId by profile user)
+- getSteamIdByLogin (Get SteamId by profile login)
