@@ -58,3 +58,7 @@ compile 'org.steambuff:SteamAPI:0.5-beta'
 - [ ] IsPlayingSharedGame (v0001)
 - [x] GetSchemaForGame (v2)
 - [x] GetPlayerBans (v1)
+
+## Additional methods
+
+- getSteamIdByPage (Get SteamId by profile user)

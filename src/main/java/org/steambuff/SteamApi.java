@@ -16,8 +16,10 @@ import org.steambuff.method.steamuser.entity.*;
 
 import java.util.List;
 
+/**
+ * The type Steam api.
+ */
 public final class SteamApi {
-
 
     /**
      * Key for access to steamAPI
@@ -31,10 +33,19 @@ public final class SteamApi {
      */
     private DriverInterface driver;
 
+    /**
+     * PlayerServiceInterface steam.
+     */
     private PlayerServiceInterface serviceInterface;
+
+    /**
+     * SteamUserInterface steam.
+     */
     private SteamUserInterface steamUserInterface;
 
-
+    /**
+     * Component for parse JSON.
+     */
     private Gson gson;
 
     /**
@@ -61,8 +72,21 @@ public final class SteamApi {
     }
 
 
+    /**
+     * Initialize GSON component
+     */
     private void initGson() {
         GsonBuilder gsonBuilder = new GsonBuilder();
+        this.registerTypeAdapter(gsonBuilder);
+        this.gson = gsonBuilder.create();
+    }
+
+    /**
+     * Register for GSON Builder type adapter
+     *
+     * @param gsonBuilder GSON builder
+     */
+    private void registerTypeAdapter(GsonBuilder gsonBuilder) {
         gsonBuilder.registerTypeAdapter(new TypeToken<List<PlayerSummaries>>() {
         }.getType(), new PlayerSummariesDeserializer());
         gsonBuilder.registerTypeAdapter(UserStats.class, new UserStatsDeserializer());
@@ -71,7 +95,6 @@ public final class SteamApi {
         gsonBuilder.registerTypeAdapter(SchemaForGame.class, new SchemaForGameDeserializer());
         gsonBuilder.registerTypeAdapter(new TypeToken<List<PlayerBans>>() {
         }.getType(), new PlayerBansDeserializer());
-        this.gson = gsonBuilder.create();
     }
 
     private void initInterfaces() {
