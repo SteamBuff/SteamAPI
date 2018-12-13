@@ -7,6 +7,9 @@ import org.steambuff.method.RequestEntity;
 import org.steambuff.method.SteamId;
 
 
+/**
+ * The type Request player summaries.
+ */
 public class RequestPlayerSummaries implements RequestEntity<RequestPlayerSummaries> {
 
 
@@ -14,6 +17,9 @@ public class RequestPlayerSummaries implements RequestEntity<RequestPlayerSummar
     private String url = "api.steampowered.com/ISteamUser/GetPlayerSummaries/v2/";
 
 
+    /**
+     * Instantiates a new Request player summaries.
+     */
     public RequestPlayerSummaries() {
     }
 

@@ -8,6 +8,9 @@ import org.steambuff.exception.SteamApiException;
 
 import java.lang.reflect.Type;
 
+/**
+ * The type Abstract steam interface.
+ */
 public abstract class AbstractSteamInterface implements SteamApiInterface {
 
     private String key;
@@ -16,6 +19,13 @@ public abstract class AbstractSteamInterface implements SteamApiInterface {
 
     private Gson gson;
 
+    /**
+     * Instantiates a new Abstract steam interface.
+     *
+     * @param key             the key
+     * @param driverInterface the driver interface
+     * @param gson            the gson
+     */
     public AbstractSteamInterface(String key, DriverInterface driverInterface, Gson gson) {
         this.key = key;
         this.driverInterface = driverInterface;
@@ -30,6 +40,15 @@ public abstract class AbstractSteamInterface implements SteamApiInterface {
         return key;
     }
 
+    /**
+     * Parse t.
+     *
+     * @param <T>  the type parameter
+     * @param data the data
+     * @param type the type
+     * @return the t
+     * @throws JsonSyntaxException the json syntax exception
+     */
     protected <T> T parse(String data, Type type) throws JsonSyntaxException {
         T entity = gson.fromJson(data, type);
         if (entity == null) {
@@ -38,6 +57,13 @@ public abstract class AbstractSteamInterface implements SteamApiInterface {
         return entity;
     }
 
+    /**
+     * Send get string.
+     *
+     * @param requestEntity the request entity
+     * @return the string
+     * @throws SteamApiException the steam api exception
+     */
     protected String sendGET(RequestEntity requestEntity) throws SteamApiException {
         return getDriver().getData(
                 requestEntity.getURL(),

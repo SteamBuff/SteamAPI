@@ -4,6 +4,9 @@ package org.steambuff.driver;
 import java.util.HashMap;
 import java.util.function.Consumer;
 
+/**
+ * The type Request params.
+ */
 public class RequestParams implements Params {
 
     private HashMap<String, Object> params = new HashMap<>();
@@ -26,9 +29,7 @@ public class RequestParams implements Params {
     @Override
     public String toString() {
         StringBuffer buffer = new StringBuffer();
-        this.forEach(data -> {
-            buffer.append(data.getKey()).append("=").append(data.getValue()).append("&");
-        });
+        this.forEach(data -> buffer.append(data.getKey()).append("=").append(data.getValue()).append("&"));
 
         return buffer.length() > 0 ? buffer.deleteCharAt(buffer.length() - 1).toString() : buffer.toString();
     }

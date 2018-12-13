@@ -14,7 +14,10 @@ import org.steambuff.method.steamuser.entity.PlayerBans;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PlayerBansTest {
+/**
+ * The type Player bans test.
+ */
+class PlayerBansTest {
 
     private static TesterDriver testDriver = new TesterDriver("api.steampowered.com/ISteamUser/GetPlayerBans/v1/").
             addReaction(new ReactionDriver("GET", "PB_good_1").addSteamIds(new SteamId(0, 23)).addKey(SteamApiTest.GOOD_KEY)).
@@ -25,6 +28,11 @@ public class PlayerBansTest {
     private SteamApi steamApi = new SteamApi(SteamApiTest.GOOD_KEY, testDriver);
 
 
+    /**
+     * Check parser good.
+     *
+     * @throws SteamApiException the steam api exception
+     */
     @Test
     void checkParserGood() throws SteamApiException {
         PlayerBans player = steamApi.getSteamUserInterface().getPlayerBans(new SteamId(0, 23)).get(0);
@@ -37,27 +45,36 @@ public class PlayerBansTest {
     }
 
 
+    /**
+     * Check bad npe.
+     */
     @Test
     void checkBadNPE() {
         try {
             steamApi.getSteamUserInterface().getPlayerBans(new SteamId(0, -1));
             Assert.fail();
-        } catch (SteamApiException ignoreda) {
-
+        } catch (SteamApiException ignored) {
         }
     }
 
+    /**
+     * Check bad.
+     */
     @Test
     void checkBad() {
         try {
             steamApi.getSteamUserInterface().getPlayerBans(new SteamId(0, -2));
             Assert.fail();
         } catch (SteamApiException ignored) {
-
         }
     }
 
 
+    /**
+     * Test list players.
+     *
+     * @throws SteamApiException the steam api exception
+     */
     @Test
     void testListPlayers() throws SteamApiException {
 

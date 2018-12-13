@@ -1,8 +1,17 @@
 package org.steambuff.method.steamuser.entity.enums;
 
+/**
+ * The enum Community visibility state.
+ */
 public enum CommunityVisibilityState {
 
+    /**
+     * Public community visibility state.
+     */
     PUBLIC,
+    /**
+     * Private community visibility state.
+     */
     PRIVATE;
 
 

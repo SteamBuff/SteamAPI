@@ -7,6 +7,9 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The type Player bans deserializer.
+ */
 public class PlayerBansDeserializer implements JsonDeserializer<List<PlayerBans>> {
 
     @Override

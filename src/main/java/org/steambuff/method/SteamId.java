@@ -1,6 +1,8 @@
 package org.steambuff.method;
 
 /**
+ * The type Steam id.
+ *
  * @see <a href="https://developer.valvesoftware.com/wiki/SteamID">About steamId</a>
  */
 public class SteamId implements SteamIdInterface {
@@ -20,17 +22,35 @@ public class SteamId implements SteamIdInterface {
      */
     private long id;
 
+    /**
+     * Instantiates a new Steam id.
+     *
+     * @param universe the universe
+     * @param lastBit  the last bit
+     * @param id       the id
+     */
     public SteamId(byte universe, byte lastBit, long id) {
         this.lastBit = lastBit;
         this.id = id;
     }
 
 
+    /**
+     * Instantiates a new Steam id.
+     *
+     * @param lastBit the last bit
+     * @param id      the id
+     */
     public SteamId(int lastBit, long id) {
         this.lastBit = (byte) lastBit;
         this.id = id;
     }
 
+    /**
+     * Instantiates a new Steam id.
+     *
+     * @param id64 the id 64
+     */
     public SteamId(String id64) {
         long id64Long = Long.parseLong(id64);
         byte universe = (byte) (id64Long % 2);
@@ -39,6 +59,11 @@ public class SteamId implements SteamIdInterface {
         this.id = id;
     }
 
+    /**
+     * Instantiates a new Steam id.
+     *
+     * @param id64 the id 64
+     */
     public SteamId(long id64) {
         byte universe = (byte) (id64 % 2);
         long id = (id64 - 76561197960265728L - universe) / 2;
@@ -61,6 +86,11 @@ public class SteamId implements SteamIdInterface {
     }
 
 
+    /**
+     * Gets universe.
+     *
+     * @return the universe
+     */
     public byte getUniverse() {
         return universe;
     }

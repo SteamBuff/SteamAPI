@@ -17,8 +17,18 @@ import org.steambuff.method.steamuser.entity.request.RequestStatsGame;
 
 import java.util.List;
 
+/**
+ * The type Steam user.
+ */
 public class SteamUser extends AbstractSteamInterface implements SteamUserInterface {
 
+    /**
+     * Instantiates a new Steam user.
+     *
+     * @param key             the key
+     * @param driverInterface the driver interface
+     * @param gson            the gson
+     */
     public SteamUser(String key, DriverInterface driverInterface, Gson gson) {
         super(key, driverInterface, gson);
     }

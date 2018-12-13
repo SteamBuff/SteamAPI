@@ -2,6 +2,9 @@ package org.steambuff.method.playerservice.entity;
 
 import com.google.gson.annotations.SerializedName;
 
+/**
+ * The type Game.
+ */
 public class Game {
 
     /**
@@ -32,26 +35,56 @@ public class Game {
     private boolean communityVisibleStats;
 
 
+    /**
+     * Gets app id.
+     *
+     * @return the app id
+     */
     public long getAppId() {
         return appId;
     }
 
+    /**
+     * Gets playtime forever.
+     *
+     * @return the playtime forever
+     */
     public long getPlaytimeForever() {
         return playtimeForever;
     }
 
+    /**
+     * Gets playtime two week.
+     *
+     * @return the playtime two week
+     */
     public long getPlaytimeTwoWeek() {
         return playtimeTwoWeek;
     }
 
+    /**
+     * Gets icon url.
+     *
+     * @return the icon url
+     */
     public String getIconUrl() {
         return iconUrl;
     }
 
+    /**
+     * Gets logo url.
+     *
+     * @return the logo url
+     */
     public String getLogoUrl() {
         return logoUrl;
     }
 
+    /**
+     * Has community visible stats boolean.
+     *
+     * @return the boolean
+     */
     public boolean hasCommunityVisibleStats() {
         return communityVisibleStats;
     }

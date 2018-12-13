@@ -7,6 +7,9 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The type Player summaries deserializer.
+ */
 public class PlayerSummariesDeserializer implements JsonDeserializer<List<PlayerSummaries>> {
 
 

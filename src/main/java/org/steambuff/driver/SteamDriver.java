@@ -8,6 +8,9 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
 
+/**
+ * The type Steam driver.
+ */
 public class SteamDriver implements DriverInterface {
 
     private boolean useHttp = true;

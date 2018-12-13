@@ -6,6 +6,9 @@ import org.steambuff.method.ListSteamId;
 import org.steambuff.method.RequestEntity;
 import org.steambuff.method.SteamId;
 
+/**
+ * The type Request player bans.
+ */
 public class RequestPlayerBans implements RequestEntity<RequestPlayerBans> {
 
     private ListSteamId listSteamId = new ListSteamId();

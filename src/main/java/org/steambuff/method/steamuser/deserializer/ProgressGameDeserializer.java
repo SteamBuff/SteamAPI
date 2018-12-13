@@ -8,6 +8,9 @@ import org.steambuff.method.steamuser.entity.StatsGame;
 import java.lang.reflect.Type;
 import java.util.List;
 
+/**
+ * The type Progress game deserializer.
+ */
 public class ProgressGameDeserializer implements JsonDeserializer<ProgressGame> {
     @Override
     public ProgressGame deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {

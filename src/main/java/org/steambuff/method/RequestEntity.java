@@ -5,6 +5,8 @@ import org.steambuff.driver.Params;
 
 /**
  * The interface Request entity.
+ *
+ * @param <T> the type parameter
  */
 public interface RequestEntity<T extends RequestEntity<T>> {
 
@@ -14,20 +16,20 @@ public interface RequestEntity<T extends RequestEntity<T>> {
      * @param object Object
      * @return {@code this}
      */
-    public T add(Object object);
+    T add(Object object);
 
     /**
      * Gets params.
      *
      * @return the params
      */
-    public Params getParams();
+    Params getParams();
 
 
     /**
      * Get the URL for sending the request
      *
-     * @return URL
+     * @return URL url
      */
     String getURL();
 }
