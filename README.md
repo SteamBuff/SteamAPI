@@ -16,9 +16,9 @@ class SteamApiExample {
         SteamId steamId = new SteamId(76561198201241926);
         List<PlayerSummaries> playerSummaries = steamApi.getSteamUserInterface().getPlayerSummaries(steamId);
         if (playerSummaries.size() > 0) {
-            System.out.println("Result: "+playerSummaries.getDisplayName());
+            System.out.println("Result: " + playerSummaries.getDisplayName());
         }else{
-            System.out.println("Not found user with steamID: "+steamId.toString());
+            System.out.println("Not found user with steamID: " + steamId.toString());
         }
     }
 }
