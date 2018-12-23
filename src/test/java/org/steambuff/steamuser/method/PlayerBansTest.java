@@ -35,7 +35,7 @@ class PlayerBansTest {
      */
     @Test
     void checkParserGood() throws SteamApiException {
-        PlayerBans player = steamApi.getSteamUserInterface().getPlayerBans(new SteamId(0, 23)).get(0);
+        PlayerBans player = steamApi.getSteamUserInterface().getPlayerBans(new SteamId(0, 23)).get();
         Assert.assertEquals(player.getDaysSinceLastBan(), 510);
         Assert.assertEquals(player.getEconomyBanString(), "none");
         Assert.assertEquals(player.getNumberOfGameBans(), 0);

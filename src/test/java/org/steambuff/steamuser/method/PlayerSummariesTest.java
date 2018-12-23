@@ -20,8 +20,7 @@ import org.steambuff.method.steamuser.entity.enums.ProfileState;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
+import static org.junit.Assert.*;
 
 /**
  * The type Player summaries test.
@@ -50,7 +49,7 @@ class PlayerSummariesTest {
      */
     @Test
     void checkParserGood() throws SteamApiException {
-        PlayerSummaries tester = steamUserInterface.getPlayerSummaries(new SteamId(0, 23)).get(0);
+        PlayerSummaries tester = steamUserInterface.getPlayerSummaries(new SteamId(0, 23)).get();
         assertEquals(tester.getSteamId().toId64(), new SteamId(0, 23).toId64());
         assertEquals(tester.getAvatar(), "https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/16/163e2fd02f3bb4257696ce2c5695233b470c3f39.jpg");
         assertEquals(tester.getAvatarFull(), "https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/16/163e2fd02f3bb4257696ce2c5695233b470c3f39_full.jpg");
@@ -70,7 +69,7 @@ class PlayerSummariesTest {
      */
     @Test()
     void badSteamId() throws SteamApiException {
-        assertEquals(0, steamUserInterface.getPlayerSummaries(new SteamId(0, -1)).size());
+        assertFalse(steamUserInterface.getPlayerSummaries(new SteamId(0, -1)).isPresent());
 
     }
 
@@ -80,7 +79,7 @@ class PlayerSummariesTest {
     @Test
     void badJson() {
         try {
-            assertEquals(0, steamUserInterface.getPlayerSummaries(new SteamId(0, 1)).size());
+            assertFalse(steamUserInterface.getPlayerSummaries(new SteamId(0, 1)).isPresent());
             fail();
         } catch (SteamApiException exception) {
             if (!exception.getMessage().equals("java.lang.IllegalStateException: Not a JSON Object: \"THIS!!!ISNOTJSON\"")) {

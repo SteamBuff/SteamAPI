@@ -16,6 +16,7 @@ import org.steambuff.method.steamuser.entity.request.RequestSchemaForGame;
 import org.steambuff.method.steamuser.entity.request.RequestStatsGame;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * The type Steam user.
@@ -46,12 +47,16 @@ public class SteamUser extends AbstractSteamInterface implements SteamUserInterf
     }
 
     @Override
-    public List<PlayerSummaries> getPlayerSummaries(SteamId steamId) throws SteamApiException {
+    public Optional<PlayerSummaries> getPlayerSummaries(SteamId steamId) throws SteamApiException {
         try {
-            return parse(sendGET(new RequestPlayerSummaries().add(steamId)),
+            List<PlayerSummaries> result = parse(sendGET(new RequestPlayerSummaries().add(steamId)),
                     new TypeToken<List<PlayerSummaries>>() {
-                    }.getType()
-            );
+                    }.getType());
+            if (result.size() == 0) {
+                return Optional.empty();
+            } else {
+                return Optional.of(result.get(0));
+            }
         } catch (JsonSyntaxException exception) {
             throw new SteamApiException(exception.getMessage());
         }
@@ -80,13 +85,18 @@ public class SteamUser extends AbstractSteamInterface implements SteamUserInterf
     }
 
     @Override
-    public List<PlayerBans> getPlayerBans(SteamId steamId) throws SteamApiException {
+    public Optional<PlayerBans> getPlayerBans(SteamId steamId) throws SteamApiException {
         try {
-            return parse(sendGET(
+
+            List<PlayerBans> result = parse(sendGET(
                     new RequestPlayerBans().add(steamId)),
                     new TypeToken<List<PlayerBans>>() {
-                    }.getType()
-            );
+                    }.getType());
+            if (result.size() == 0) {
+                return Optional.empty();
+            } else {
+                return Optional.of(result.get(0));
+            }
         } catch (JsonSyntaxException exception) {
             throw new SteamApiException(exception.getMessage());
         }

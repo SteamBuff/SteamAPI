@@ -9,6 +9,7 @@ import org.steambuff.method.steamuser.entity.SchemaForGame;
 import org.steambuff.method.steamuser.entity.UserStats;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * The interface Steam user interface.
@@ -31,7 +32,7 @@ public interface SteamUserInterface {
      * @return the player summaries
      * @throws SteamApiException the steam api exception
      */
-    List<PlayerSummaries> getPlayerSummaries(SteamId steamId) throws SteamApiException;
+    Optional<PlayerSummaries> getPlayerSummaries(SteamId steamId) throws SteamApiException;
 
     /**
      * Gets user stats for game.
@@ -59,7 +60,7 @@ public interface SteamUserInterface {
      * @return the player bans
      * @throws SteamApiException the steam api exception
      */
-    List<PlayerBans> getPlayerBans(SteamId steamId) throws SteamApiException;
+    Optional<PlayerBans> getPlayerBans(SteamId steamId) throws SteamApiException;
 
 
     /**
