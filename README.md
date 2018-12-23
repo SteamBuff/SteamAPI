@@ -11,15 +11,15 @@
 ```java
 class SteamApiExample {
     
-    public static void main(String[] args){
+    public static void main(String[] args) throws SteamApiException {
         SteamApi steamApi = SteamApi.getInstance("KEY");
-        PlayerSummaries playerSummaries;
-        try{ 
-            playerSummaries =  steamApi.getSteamUserInterface().getPlayerSummaries(new SteamId(0,2)).get(0);
-        }catch (SteamApiException exception){
-            System.out.println("Some errors: " + exception.getMessage());
+        SteamId steamId = new SteamId(76561198201241926);
+        List<PlayerSummaries> playerSummaries = steamApi.getSteamUserInterface().getPlayerSummaries(steamId);
+        if (playerSummaries.size() > 0) {
+            System.out.println("Result: " + playerSummaries.getDisplayName());
+        }else{
+            System.out.println("Not found user with steamID: " + steamId.toString());
         }
-       System.out.println("Result: "+playerSummaries.getDisplayName());
     }
 }
 ```
@@ -32,7 +32,7 @@ class SteamApiExample {
 <dependency>
     <groupId>org.steambuff</groupId>
     <artifactId>SteamAPI</artifactId>
-    <version>0.5-beta</version>
+    <version>0.6-1-beta</version>
 </dependency>
 ```
 
