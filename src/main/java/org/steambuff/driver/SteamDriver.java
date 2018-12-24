@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
+import java.nio.charset.Charset;
 
 /**
  * The type Steam driver.
@@ -48,7 +49,10 @@ public class SteamDriver implements DriverInterface {
         URLConnection steamConnection = steamUrl.openConnection();
         BufferedReader in = new BufferedReader(
                 new InputStreamReader(
-                        steamConnection.getInputStream()));
+                        steamConnection.getInputStream(),
+                        Charset.forName("UTF-8")
+                )
+        );
         String inputLine;
         StringBuilder response = new StringBuilder();
         while ((inputLine = in.readLine()) != null)
