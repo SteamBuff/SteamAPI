@@ -2,6 +2,7 @@ org.steambuff
 org.steambuff.driver
 org.steambuff.exception
 org.steambuff.method
+org.steambuff.method.exception
 org.steambuff.method.playerservice
 org.steambuff.method.playerservice.deserializer
 org.steambuff.method.playerservice.entity
@@ -11,5 +12,8 @@ org.steambuff.method.steamuser.deserializer
 org.steambuff.method.steamuser.entity
 org.steambuff.method.steamuser.entity.enums
 org.steambuff.method.steamuser.entity.request
+org.steambuff.method.util
+org.steambuff.method.util.exception
 org.steambuff.steamuser.driver
 org.steambuff.steamuser.method
+org.steambuff.steamuser.util

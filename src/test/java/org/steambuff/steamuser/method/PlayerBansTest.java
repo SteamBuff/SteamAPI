@@ -79,6 +79,7 @@ class PlayerBansTest {
     void testListPlayers() throws SteamApiException {
 
         ListSteamId listSteamId = new ListSteamId(new SteamId(0, 123)).add(new SteamId(0, -1));
+        Assert.assertEquals(2, listSteamId.size());
         List<PlayerBans> player = steamApi.getSteamUserInterface().getPlayerBans(listSteamId);
         Assert.assertEquals(player.size(), 1);
         Assert.assertEquals(player.get(0).getSteamId().toId64(), 76561197960265974L);
