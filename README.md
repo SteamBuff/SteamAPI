@@ -11,7 +11,7 @@
 ```java
 class SteamApiExample {
     
-    public static void main(String[] args) throws SteamApiException {
+    public static void main(String[] args) throws SteamApiException, NoSuchElementException {
         SteamApi steamApi = SteamApi.getInstance("KEY");
         SteamId steamId = new SteamId(76561198201241926);
         PlayerSummaries playerSummaries = steamApiSemaphore.getSteamUserInterface()
