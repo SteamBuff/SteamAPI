@@ -14,12 +14,10 @@ class SteamApiExample {
     public static void main(String[] args) throws SteamApiException {
         SteamApi steamApi = SteamApi.getInstance("KEY");
         SteamId steamId = new SteamId(76561198201241926);
-        List<PlayerSummaries> playerSummaries = steamApi.getSteamUserInterface().getPlayerSummaries(steamId);
-        if (playerSummaries.size() > 0) {
-            System.out.println("Result: " + playerSummaries.getDisplayName());
-        }else{
-            System.out.println("Not found user with steamID: " + steamId.toString());
-        }
+        PlayerSummaries playerSummaries = steamApiSemaphore.getSteamUserInterface()
+                                                           .getPlayerSummaries(suspectSteamId)
+                                                           .orElseThrow();
+        System.out.println("Result: " + playerSummaries.getDisplayName());
     }
 }
 ```
@@ -28,17 +26,17 @@ class SteamApiExample {
 
 ### Maven 
 
-```
+```xml
 <dependency>
     <groupId>org.steambuff</groupId>
     <artifactId>SteamAPI</artifactId>
-    <version>0.6-1-beta</version>
+    <version>{REPLACE_TO_VERSION}</version>
 </dependency>
 ```
 
 ### Gradle
-```
-compile 'org.steambuff:SteamAPI:0.5-beta'
+```groovy
+compile 'org.steambuff:SteamAPI:{REPLACE_TO_VERSION}'
 ```
 
 [Another system](https://mvnrepository.com/artifact/org.steambuff/SteamAPI)
