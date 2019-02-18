@@ -15,7 +15,7 @@ class SteamApiExample {
         SteamApi steamApi = SteamApi.getInstance("KEY");
         SteamId steamId = new SteamId(76561198201241926);
         PlayerSummaries playerSummaries = steamApi.getSteamUserInterface()
-                                                           .getPlayerSummaries(suspectSteamId)
+                                                           .getPlayerSummaries(steamId)
                                                            .orElseThrow();
         System.out.println("Result: " + playerSummaries.getDisplayName());
     }
